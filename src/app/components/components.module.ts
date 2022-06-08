@@ -9,6 +9,11 @@ import { MatListModule } from '@angular/material/list';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { NavItemComponent } from './nav-menu/nav-item.component';
 import {RouterModule} from "@angular/router";
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -22,7 +27,12 @@ import {RouterModule} from "@angular/router";
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule
   ],
   exports: [NavMenuComponent]
 })

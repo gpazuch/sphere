@@ -1,0 +1,15 @@
+@import 'src/styles';
+
+.login-container {
+  width: min-content;
+  float: right;
+  height: 100%;
+  margin-right: 3em;
+  align-items: center;
+  display: flex;
+}
+
+.login-button {
+  background-color: $orb-blue;
+  color: $orb-theme-text-white;
+}

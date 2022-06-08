@@ -41,6 +41,10 @@ $orb-theme: mat.define-dark-theme((
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Montserrat', sans-serif; }
 
+input {
+  color: $orb-theme-text-white;
+}
+
 .mat-card {
   background-color: $orb-theme-background-light;
 }
