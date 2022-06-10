@@ -39,7 +39,7 @@ $orb-theme: mat.define-dark-theme((
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: 'Montserrat', sans-serif; }
+body { margin: 0; font-family: 'Montserrat', sans-serif; color: $orb-theme-text-gray};
 
 input {
   color: $orb-theme-text-white;
@@ -52,3 +52,5 @@ input {
 .mat-raised-button {
   flex: 1 1 auto;
 }
+
+

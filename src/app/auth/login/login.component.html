@@ -1,17 +1,22 @@
 <div class="login-container">
+  <h3 class="auth-title">Log in or sign up</h3>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <mat-form-field>
-      <mat-label>Enter your email:</mat-label>
-      <input matInput formControlName="email">
-      <mat-error *ngIf="loginForm.dirty || loginForm.touched">
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Password</mat-label>
-      <input matInput formControlName="password">
-      <mat-error *ngIf="loginForm.dirty || loginForm.touched">
-      </mat-error>
-    </mat-form-field>
+    <div>
+      <mat-form-field>
+        <mat-label>Enter your email:</mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf="loginForm.dirty || loginForm.touched">
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password">
+        <mat-error *ngIf="loginForm.dirty || loginForm.touched">
+        </mat-error>
+      </mat-form-field>
+    </div>
     <button mat-raised-button type="submit" class="login-button">Submit</button>
   </form>
 </div>

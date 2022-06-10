@@ -1,13 +1,13 @@
 @import 'src/styles';
+@import 'src/typos.scss';
 
 .login-container {
-  width: min-content;
-  float: right;
-  height: 100%;
-  margin-right: 3em;
-  align-items: center;
   display: flex;
+  flex-direction: column;
+  height: 100%;
+
 }
+
 
 .login-button {
   background-color: $orb-blue;
