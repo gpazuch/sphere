@@ -4,7 +4,7 @@
  * [Fleet Architecture]{@link https://github.com/ns1labs/orb/wiki/Architecture:-Fleet}
  */
 
-import { Agent } from "http";
+import { Agent } from "./agent.interface";
 import { OrbEntity } from "./orb.entity.interface";
 import { TagMatch } from "./tag.match.interface";
 

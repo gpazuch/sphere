@@ -15,15 +15,15 @@ export interface PrometheusConfig extends SinkConfig<string> {
   /**
    *  Remote Host URL {string}
    */
-  remote_host?: string;
+  remote_host: string;
 
   /**
    *  Username|Email(?) {string}
    */
-  username?: string;
+  username: string;
 
   /**
    *  Password {string}
    */
-  password?: string;
+  password: string;
 }

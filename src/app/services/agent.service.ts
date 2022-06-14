@@ -37,7 +37,7 @@ export class AgentService {
           acc.total = acc.data.length;
           return acc;
         }, page),
-      )
+      );
   }
 
   getAgentPage(page: OrbPagination<Agent>) {
