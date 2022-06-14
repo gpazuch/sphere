@@ -5,15 +5,17 @@ export interface OrbPagination<T> {
 
   order: string;
 
+  dir: 'desc' | 'asc';
+
+  data: T[];
+
+  next?: any;
+
   total?: number;
 
   name?: string;
 
   tags?: string;
 
-  dir?: 'desc' | 'asc';
-
-  data: T[];
-
-  next?: any;
+  filters?: any;
 }

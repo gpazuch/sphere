@@ -4,11 +4,21 @@ import { PagesComponent } from './pages.component';
 import {environment} from "../../environments/environment";
 import {HomeComponent} from "./home/home.component";
 import {DevComponent} from "./dev/dev.component";
+import { AgentsComponent } from './agents/agents.component';
 
 const children = [
   {
     path: 'home',
     component: HomeComponent,
+  },
+  {
+    path: 'fleet',
+    children: [
+      {
+        path: 'agents',
+        component: AgentsComponent,
+      }
+    ],
   }
 ];
 

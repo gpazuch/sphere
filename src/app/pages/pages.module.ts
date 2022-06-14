@@ -12,16 +12,21 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DevComponent } from './dev/dev.component';
+import { AgentsComponent } from './agents/agents.component';
+import { ServicesModule } from '../services/services.module';
+import { AgentService } from '../services/agent.service';
 
 
 @NgModule({
   declarations: [
     PagesComponent,
     HomeComponent,
-    DevComponent
+    DevComponent,
+    AgentsComponent
   ],
   imports: [
     CommonModule,
+    ServicesModule,
     ComponentsModule,
     PagesRoutingModule,
     MatGridListModule,
@@ -30,6 +35,9 @@ import { DevComponent } from './dev/dev.component';
     MatIconModule,
     MatButtonModule,
     LayoutModule
+  ],
+  providers: [
+    AgentService,
   ]
 })
 export class PagesModule { }
