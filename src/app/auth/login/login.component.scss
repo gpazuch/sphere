@@ -1,25 +1,35 @@
 @import 'src/styles';
 @import 'src/typos.scss';
 
-app-login {
-  display: flex;
-  width: 40%;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
 
 .login-container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-
+    min-width: 20vw;
+    max-width: 30vw;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
 }
 
+.login-form {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
 
-.login-button {
-  background-color: $orb-blue;
-  color: $orb-theme-text-white;
+  mat-form-field, input {
+    width: 100%;
+  }
+}
+
+mat-form-field {
+
+  margin: 1em 0;
 }
