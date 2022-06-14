@@ -13,8 +13,8 @@
       <mat-error *ngIf="loginForm.dirty || loginForm.touched">
       </mat-error>
     </mat-form-field>
-    <button type="submit">Submit</button>
-    <button>Forgot Password?</button>
-    <p class="subheading-2">Don't have an account?<button>Register</button></p>
+    <button mat-button><p>Forgot Password?</p></button>
+    <button mat-raised-button type="submit" class="login-button"><p>Log in</p></button>
+    <p class="subheading-2">Don't have an account?<button mat-button>Register</button></p>
   </form>
 </div>

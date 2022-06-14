@@ -48,8 +48,7 @@ input {
   background-color: $orb-theme-background-light;
 }
 
-.mat-raised-button {
-  flex: 1 1 auto;
+.mat-button {
+  padding: 0;
+  margin: 0;
 }
-
-

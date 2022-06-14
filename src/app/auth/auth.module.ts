@@ -14,6 +14,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { ResetComponent } from './reset/reset.component';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { ResetComponent } from './reset/reset.component';
     ResetComponent
   ],
   imports: [
+    MatButtonModule,
     CommonModule,
     HttpClientModule,
     MatFormFieldModule,
