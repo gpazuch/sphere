@@ -32,7 +32,7 @@ export class AgentService {
         }),
         delay(100),
         reduce((acc, value) => {
-          acc.data = [...acc?.data, ...value?.data];
+          acc.data = [...acc?.data || [], ...value?.data || []];
           acc.offset = 0;
           acc.total = acc.data.length;
           return acc;
