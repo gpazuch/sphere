@@ -25,8 +25,8 @@ mat-icon {
   background-color: $orb-theme-background-light;
 
   button {
-    background-color: $orb-theme-background;
-    border: none;
+    background-color: $orb-theme-background-light;
+    border: 1px;
 
     .mat-icon {
       color: $orb-theme-text-gray;

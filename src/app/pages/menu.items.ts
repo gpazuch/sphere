@@ -11,22 +11,22 @@ const items: NavMenuItem[] = [
   {
     title: 'Agents',
     icon: 'cell_tower',
-    link: '/pages/home',
+    link: '/pages/fleet/agents',
   },
   {
     title: 'Agent Groups',
     icon: 'storage',
-    link: '/pages/home',
+    link: '/pages/fleet/groups',
   },
   {
     title: 'Policy Management',
     icon: 'query_stats',
-    link: '/pages/home',
+    link: '/pages/dataset/policies',
   },
   {
     title: 'Sink Management',
     icon: 'settings',
-    link: '/pages/home',
+    link: '/pages/sinks',
   },
 ];
 

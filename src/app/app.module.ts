@@ -9,6 +9,7 @@ import { ComponentsModule } from './components/components.module';
 import { TokenService } from './auth/token.service';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
+import { MAT_RIPPLE_GLOBAL_OPTIONS } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,12 @@ import { AuthGuard } from './auth/auth.guard';
     ServicesModule,
     ComponentsModule
   ],
-  providers: [TokenService, AuthService, AuthGuard],
+  providers: [
+    TokenService,
+    AuthService,
+    AuthGuard,
+    {provide: MAT_RIPPLE_GLOBAL_OPTIONS, useValue: {disabled:true}},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

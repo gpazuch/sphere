@@ -6,6 +6,10 @@
 
 .mat-list-item {
   color: $orb-theme-text-gray;
+
+  &.active {
+    color: $orb-pink;
+  }
 }
 
 mat-icon {
