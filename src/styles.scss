@@ -3,6 +3,7 @@
 @use '@angular/material' as mat;
 // Plus imports for other components in your app.
 @import './colors.scss';
+@import './typos.scss';
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -55,4 +56,5 @@ input {
 .mat-button {
   padding: 0;
   margin: 0;
+  color: $orb-blue;
 }
