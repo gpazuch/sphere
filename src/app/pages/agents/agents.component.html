@@ -1,5 +1,12 @@
 <mat-toolbar>
-  Agent List
+  <mat-toolbar-row>
+    Agent List
+    <span class="spacer"></span>
+    <button mat-button>Create Agent</button>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    Filters
+  </mat-toolbar-row>
 </mat-toolbar>
 <mat-grid-list cols="5">
   <mat-grid-tile *ngFor="let agent of agents$ | async">

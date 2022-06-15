@@ -4,7 +4,6 @@
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
                [opened]="(isHandset$ | async) === false">
     <mat-toolbar>
-      <mat-icon>menu</mat-icon>
       <img src="assets/images/orb_logo_25.png" alt="ORB Overview" class="header-logo" />
     </mat-toolbar>
     <mat-nav-list>
@@ -21,6 +20,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+      <button class="profile" mat-button>Profile</button>
     </mat-toolbar>
     <ng-content></ng-content>
   </mat-sidenav-content>

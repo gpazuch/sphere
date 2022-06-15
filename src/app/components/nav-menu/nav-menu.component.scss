@@ -1,5 +1,10 @@
 @import 'src/styles';
 
+.profile {
+  margin-left: auto;
+  color: $orb-theme-text-gray;
+}
+
 mat-icon {
   margin-right: 1rem;
 }

@@ -44,6 +44,10 @@ input {
   color: $orb-theme-text-white;
 }
 
+.mat-toolbar {
+  background-color: $orb-theme-background;
+}
+
 .mat-card {
   background-color: $orb-theme-background-light;
 }
