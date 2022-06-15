@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AgentService } from 'src/app/services/agent.service';
+import { Observable } from 'rxjs';
+import { Agent } from 'src/app/services/interfaces/agent.interface';
+import { OrbService } from 'src/app/services/orb.service';
 
 @Component({
   selector: 'app-agents',
@@ -7,15 +9,15 @@ import { AgentService } from 'src/app/services/agent.service';
   styleUrls: ['./agents.component.scss']
 })
 export class AgentsComponent implements OnInit {
+  agents$: Observable<Agent[]>;
 
   constructor(
-    private agents: AgentService,
-  ) { }
+    private orb: OrbService,
+  ) {
+    this.agents$ = this.orb.getAgentListView();
+  }
 
   ngOnInit(): void {
-    this.agents.getAllAgents().subscribe(resp => {
-      console.log("got it");
-    })
   }
 
 }

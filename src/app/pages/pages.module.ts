@@ -15,6 +15,11 @@ import { DevComponent } from './dev/dev.component';
 import { AgentsComponent } from './agents/agents.component';
 import { ServicesModule } from '../services/services.module';
 import { AgentService } from '../services/agent.service';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { GroupsComponent } from './groups/groups.component';
+import { PoliciesComponent } from './policies/policies.component';
+import { SinksComponent } from './sinks/sinks.component';
+import { DatasetsComponent } from './datasets/datasets.component';
 
 
 @NgModule({
@@ -22,7 +27,11 @@ import { AgentService } from '../services/agent.service';
     PagesComponent,
     HomeComponent,
     DevComponent,
-    AgentsComponent
+    AgentsComponent,
+    GroupsComponent,
+    PoliciesComponent,
+    SinksComponent,
+    DatasetsComponent
   ],
   imports: [
     CommonModule,
@@ -34,6 +43,7 @@ import { AgentService } from '../services/agent.service';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
+    MatToolbarModule,
     LayoutModule
   ],
   providers: [

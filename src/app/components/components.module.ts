@@ -13,12 +13,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AgentItemComponent } from './agent/agent-item/agent-item.component';
 
 
 
 @NgModule({
-  declarations: [NavMenuComponent, NavItemComponent],
+  declarations: [NavMenuComponent, NavItemComponent, AgentItemComponent],
   imports: [
     CommonModule,
     LayoutModule,
@@ -32,8 +34,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatChipsModule,
   ],
-  exports: [NavMenuComponent]
+  exports: [NavMenuComponent, AgentItemComponent]
 })
 export class ComponentsModule { }

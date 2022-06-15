@@ -1,1 +1,9 @@
-<p>agents works!</p>
+<mat-toolbar>
+  Agent List
+</mat-toolbar>
+<mat-grid-list cols="5">
+  <mat-grid-tile *ngFor="let agent of agents$ | async">
+    <app-agent-item [agent]="agent">
+    </app-agent-item>
+  </mat-grid-tile>
+</mat-grid-list>

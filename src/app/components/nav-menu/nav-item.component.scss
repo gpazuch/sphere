@@ -8,7 +8,10 @@
   color: $orb-theme-text-gray;
 
   &.active {
-    color: $orb-pink;
+    color: $orb-theme-text-white;
+    .mat-icon {
+      color: $orb-pink;
+    }
   }
 }
 

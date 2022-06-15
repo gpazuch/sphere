@@ -82,8 +82,8 @@ $orb-text-nav: mat.define-typography-level(
 );
 
 $orb-typography-config: mat.define-typography-config(
-    $display-4: $orb-text-body-regular,
-    $display-3: $orb-text-body-regular,
+    $display-4: $orb-text-nav-selected,
+    $display-3: $orb-text-nav,
     $display-2: $orb-text-body-regular,
     $display-1: $orb-text-body-regular,
     $headline: $orb-text-body-regular,

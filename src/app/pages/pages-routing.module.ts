@@ -5,6 +5,9 @@ import {environment} from "../../environments/environment";
 import {HomeComponent} from "./home/home.component";
 import {DevComponent} from "./dev/dev.component";
 import { AgentsComponent } from './agents/agents.component';
+import { GroupsComponent } from './groups/groups.component';
+import { SinksComponent } from './sinks/sinks.component';
+import { PoliciesComponent } from './policies/policies.component';
 
 const children = [
   {
@@ -17,8 +20,25 @@ const children = [
       {
         path: 'agents',
         component: AgentsComponent,
+      },
+      {
+        path: 'groups',
+        component: GroupsComponent,
       }
     ],
+  },
+  {
+    path: 'sinks',
+    component: SinksComponent,
+  },
+  {
+    path: 'dataset',
+    children: [
+      {
+        path: 'policies',
+        component: PoliciesComponent,
+      },
+    ]
   }
 ];
 
