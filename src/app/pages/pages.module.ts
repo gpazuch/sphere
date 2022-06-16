@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
-import {ComponentsModule} from "../components/components.module";
+import { ComponentsModule } from '../components/components.module';
 import { HomeComponent } from './home/home.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
@@ -20,7 +20,10 @@ import { GroupsComponent } from './groups/groups.component';
 import { PoliciesComponent } from './policies/policies.component';
 import { SinksComponent } from './sinks/sinks.component';
 import { DatasetsComponent } from './datasets/datasets.component';
-
+import { AgentAddComponent } from './agents/agent-add.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -31,10 +34,12 @@ import { DatasetsComponent } from './datasets/datasets.component';
     GroupsComponent,
     PoliciesComponent,
     SinksComponent,
-    DatasetsComponent
+    DatasetsComponent,
+    AgentAddComponent,
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     ServicesModule,
     ComponentsModule,
     PagesRoutingModule,
@@ -44,10 +49,10 @@ import { DatasetsComponent } from './datasets/datasets.component';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    LayoutModule
+    MatFormFieldModule,
+    MatInputModule,
+    LayoutModule,
   ],
-  providers: [
-    AgentService,
-  ]
+  providers: [AgentService],
 })
-export class PagesModule { }
+export class PagesModule {}

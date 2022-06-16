@@ -8,6 +8,7 @@ import { AgentsComponent } from './agents/agents.component';
 import { GroupsComponent } from './groups/groups.component';
 import { SinksComponent } from './sinks/sinks.component';
 import { PoliciesComponent } from './policies/policies.component';
+import { AgentAddComponent } from './agents/agent-add.component';
 
 const children = [
   {
@@ -19,7 +20,16 @@ const children = [
     children: [
       {
         path: 'agents',
-        component: AgentsComponent,
+        children: [
+          {
+            path: '',
+            component: AgentsComponent,
+          },
+          {
+            path: 'add',
+            component: AgentAddComponent,
+          },
+        ],
       },
       {
         path: 'groups',
@@ -53,6 +63,7 @@ const routes: Routes = [
   {
     path: '',
     component: PagesComponent,
+    pathMatch: 'prefix',
     children: [
       ...children,
       ...environment.production ? [] : dev_routes,

@@ -1,14 +1,11 @@
 <mat-card>
-  <mat-card-title>{{agent?.name}}</mat-card-title>
+  <mat-card-title>{{ agent?.name }}</mat-card-title>
   <mat-card-subtitle>
-    <span>{{agent?.state}}</span>
-    <span>{{agent?.ts_last_hb | date: 'M/d/yy, HH:mm z'}}</span>
+    <span>{{ agent?.state }}</span>
+    <span>{{ agent?.ts_last_hb | date: "M/d/yy, HH:mm z" }}</span>
   </mat-card-subtitle>
   <mat-card-content>
-    <mat-chip-list>
-      <mat-chip *ngFor="let tag of agent.orb_tags | keyvalue">
-        {{tag.key + ': ' + tag.value}}
-      </mat-chip>
-    </mat-chip-list>
+    <app-tag-display [tags]="agent.orb_tags">Orb Tags:</app-tag-display>
+    <app-tag-display [tags]="agent.agent_tags">Agent Tags:</app-tag-display>
   </mat-card-content>
 </mat-card>
