@@ -14,9 +14,15 @@ const children = [
   {
     path: 'home',
     component: HomeComponent,
+    data: {
+      breadcrumb: 'Dashboard',
+    },
   },
   {
     path: 'fleet',
+    data: {
+      breadcrumb: 'Fleet',
+    },
     children: [
       {
         path: 'agents',
@@ -24,22 +30,34 @@ const children = [
           {
             path: '',
             component: AgentsComponent,
+            data: {
+              breadcrumb: 'Agents List',
+            },
           },
           {
             path: 'add',
             component: AgentAddComponent,
+            data: {
+              breadcrumb: 'Agents Add',
+            },
           },
         ],
       },
       {
         path: 'groups',
         component: GroupsComponent,
+        data: {
+          breadcrumb: 'Agent Groups List',
+        },
       }
     ],
   },
   {
     path: 'sinks',
     component: SinksComponent,
+    data: {
+      breadcrumb: 'Sinks List',
+    },
   },
   {
     path: 'dataset',
@@ -47,6 +65,9 @@ const children = [
       {
         path: 'policies',
         component: PoliciesComponent,
+        data: {
+          breadcrumb: 'Policies List',
+        },
       },
     ]
   }
@@ -56,6 +77,9 @@ const dev_routes = [
   {
     path: 'dev',
     component: DevComponent,
+    data: {
+      breadcrumb: 'Dev Showcase',
+    },
   }
 ];
 
