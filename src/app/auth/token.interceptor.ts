@@ -22,8 +22,7 @@ export class TokenInterceptor implements HttpInterceptor {
     let authRequest = request;
     const token = this.token.retrieveToken(TokenDomains.OrbAPI);
     if(token !==null) {
-      // authRequest = request.clone({headers: request.headers.set(TOKEN_HEADER, 'Bearer '+token)});
-      authRequest = request.clone({headers: request.headers.set(TOKEN_HEADER, `${token}`)});
+      authRequest = request.clone({headers: request.headers.set(TOKEN_HEADER, 'Bearer '+token)});
     }
 
     return next.handle(authRequest);
