@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AgentPolicy } from 'src/app/services/interfaces/policy.interface';
 
 @Component({
   selector: 'app-policy-item',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./policy-item.component.scss']
 })
 export class PolicyItemComponent implements OnInit {
+  @Input()
+  policy: AgentPolicy = {};
 
   constructor() { }
 

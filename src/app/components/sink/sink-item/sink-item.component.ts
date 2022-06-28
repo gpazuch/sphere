@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Sink } from 'src/app/services/interfaces/sink.interface';
 
 @Component({
   selector: 'app-sink-item',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sink-item.component.scss']
 })
 export class SinkItemComponent implements OnInit {
+  @Input()
+  sink: Sink = {};
 
   constructor() { }
 

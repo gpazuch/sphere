@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AgentGroup } from 'src/app/services/interfaces/group.interface';
 
 @Component({
   selector: 'app-group-item',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./group-item.component.scss']
 })
 export class GroupItemComponent implements OnInit {
+  @Input()
+  group: AgentGroup = {};
 
   constructor() { }
 

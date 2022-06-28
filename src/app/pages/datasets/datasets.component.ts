@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Dataset } from 'src/app/services/interfaces/dataset.interface';
+import { OrbService } from 'src/app/services/orb.service';
 
 @Component({
   selector: 'app-datasets',
@@ -6,8 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./datasets.component.scss']
 })
 export class DatasetsComponent implements OnInit {
+  datasets$: Observable<Dataset[]>;
 
-  constructor() { }
+  constructor(
+    private orb: OrbService,
+  ) {
+    this.datasets$ = this.orb.getDatasetListView();
+  }
 
   ngOnInit(): void {
   }
