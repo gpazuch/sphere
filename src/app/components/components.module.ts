@@ -19,6 +19,10 @@ import { AgentItemComponent } from './agent/agent-item/agent-item.component';
 import { TagDisplayComponent } from './tag-display/tag-display.component';
 import { TagControlComponent } from './tag-control/tag-control.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { DatasetItemComponent } from './dataset/dataset-item/dataset-item.component';
+import { GroupItemComponent } from './group/group-item/group-item.component';
+import { PolicyItemComponent } from './policy/policy-item/policy-item.component';
+import { SinkItemComponent } from './sink/sink-item/sink-item.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     AgentItemComponent,
     TagDisplayComponent,
     TagControlComponent,
+    DatasetItemComponent,
+    GroupItemComponent,
+    PolicyItemComponent,
+    SinkItemComponent,
   ],
   imports: [
     CommonModule,
@@ -50,6 +58,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     AgentItemComponent,
     TagDisplayComponent,
     TagControlComponent,
+    DatasetItemComponent,
+    GroupItemComponent,
+    PolicyItemComponent,
+    SinkItemComponent,
   ],
 })
 export class ComponentsModule {}

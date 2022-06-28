@@ -22,8 +22,10 @@ import { SinksComponent } from './sinks/sinks.component';
 import { DatasetsComponent } from './datasets/datasets.component';
 import { AgentAddComponent } from './agents/agent-add.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { MatInputModule } from '@angular/material/input';
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDividerModule,
+    MatTabsModule,
     LayoutModule,
   ],
   providers: [AgentService],
