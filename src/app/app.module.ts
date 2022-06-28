@@ -10,6 +10,7 @@ import { TokenService } from './auth/token.service';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { MAT_RIPPLE_GLOBAL_OPTIONS } from '@angular/material/core';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MAT_RIPPLE_GLOBAL_OPTIONS } from '@angular/material/core';
     AppRoutingModule,
     BrowserAnimationsModule,
     ServicesModule,
-    ComponentsModule
+    ComponentsModule,
+    PipesModule
   ],
   providers: [
     TokenService,

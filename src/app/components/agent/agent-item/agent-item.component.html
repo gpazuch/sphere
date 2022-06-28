@@ -10,7 +10,7 @@
     <span class="last_hb">{{ agent?.ts_last_hb | date: "M/d/yy, HH:mm z" }}</span>
   </mat-card-subtitle>
   <mat-card-content>
-    <app-tag-display [tags]="agent.orb_tags">Orb Tags:</app-tag-display>
-    <app-tag-display [tags]="agent.agent_tags">Agent Tags:</app-tag-display>
+    <app-tag-display [tags]="agent.orb_tags"><span>Orb Tags</span></app-tag-display>
+    <app-tag-display [tags]="agent.agent_tags"><span>Agent Tags</span></app-tag-display>
   </mat-card-content>
 </mat-card>

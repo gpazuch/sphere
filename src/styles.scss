@@ -39,7 +39,7 @@ $orb-theme: mat.define-dark-theme((
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; overflow: hidden;}
-body, button { margin: 0; font-family: 'Montserrat', sans-serif; color: $orb-theme-text-gray};
+body, button, span { margin: 0; font-family: 'Montserrat', sans-serif; color: $orb-theme-text-gray};
 
 .spacer {
   flex: 1 1 auto;
@@ -53,12 +53,22 @@ input {
   background-color: $orb-theme-background;
 }
 
+.mat-chip {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: x-small;
+  color: $orb-theme-background !important;
+}
+
 .mat-card {
   background-color: $orb-theme-background-light;
 }
 
 .mat-card-title {
   margin-bottom: 14px !important;
+  > span {
+    color: $orb-theme-text-white;
+  }
 }
 
 .mat-button {
@@ -67,23 +77,22 @@ input {
   color: $orb-blue;
 }
 
-
-.new {
+.new, .new > span {
   color: $orb-violet;
 }
 
-.online {
+.online, .online > span {
   color: $orb-green;
 }
 
-.offline {
+.offline, .offline > span {
   color: $orb-pink;
 }
 
-.stale {
+.stale, .stale > span {
   color: $orb-orange;
 }
 
-.removed {
+.removed, .removed > span {
   color: $orb-gray-1;
 }

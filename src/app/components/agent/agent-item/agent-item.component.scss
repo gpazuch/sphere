@@ -1,10 +1,39 @@
 .mat-card {
   display: block;
-  min-width: 15em;
-  width: 24em;
-  max-width: 30em;
+  width: 18em;
 }
 
-.state, .last_hb {
+.mat-card-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mat-card-subtitle {
+  margin: 1em 0;
+}
+
+.mat-card-content {
+  display: inline-grid;
+  margin-top: 0em;
+  height: 8rem;
+  width: 100%;
+  justify-items: start;
+  align-items: start;
+  justify-content: space-between;
+  align-content: space-around;
+}
+
+.last_hb {
   float: right;
+}
+
+.state {
+  display: flex;
+  align-items: center;
+
+  > mat-icon {
+    margin-right: 0.25em;
+  }
 }

@@ -23,6 +23,7 @@ import { DatasetItemComponent } from './dataset/dataset-item/dataset-item.compon
 import { GroupItemComponent } from './group/group-item/group-item.component';
 import { PolicyItemComponent } from './policy/policy-item/policy-item.component';
 import { SinkItemComponent } from './sink/sink-item/sink-item.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { SinkItemComponent } from './sink/sink-item/sink-item.component';
     MatCardModule,
     ReactiveFormsModule,
     MatChipsModule,
+    PipesModule,
   ],
   exports: [
     NavMenuComponent,
