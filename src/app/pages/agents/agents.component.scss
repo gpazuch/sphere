@@ -1,9 +1,18 @@
-.spacer {
-  flex: 1 1 auto;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  overflow: auto;
+  padding-bottom: 5em;
 }
 
-.mat-grid-tile {
-  display: flex;
-  min-height: 200px;
-  min-width: 200px;
+.item {
+  padding: 0.5em 0.5em;
+  margin: 0.5em 0.5em;
+  border-radius: 15px;
+
 }

@@ -25,6 +25,11 @@ mat-icon {
   background-color: $orb-theme-background-light;
 }
 
+.mat-drawer-content {
+  overflow: hidden;
+  height: 100vh;
+}
+
 .mat-toolbar {
   color: $orb-theme-text-gray;
   background-color: $orb-theme-background-light;

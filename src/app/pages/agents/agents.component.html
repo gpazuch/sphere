@@ -8,9 +8,10 @@
     Filters
   </mat-toolbar-row>
 </mat-toolbar>
-<mat-grid-list cols="5">
-  <mat-grid-tile *ngFor="let agent of agents$ | async">
-    <app-agent-item [agent]="agent">
-    </app-agent-item>
-  </mat-grid-tile>
-</mat-grid-list>
+<div class="container">
+  <app-agent-item
+    class="item"
+    *ngFor="let agent of agents$ | async"
+    [agent]="agent">
+  </app-agent-item>
+</div>

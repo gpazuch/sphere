@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Agent } from 'src/app/services/interfaces/agent.interface';
+import { Agent, AgentStates } from 'src/app/services/interfaces/agent.interface';
 
 @Component({
   selector: 'app-agent-item',
@@ -15,4 +15,24 @@ export class AgentItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  stateIcon(): string {
+    const { state } = this.agent;
+    let icon = 'error';
+    switch(state) {
+      case AgentStates.new:
+        icon = 'pending';
+        break;
+      case AgentStates.offline:
+      case AgentStates.stale:
+        icon = 'error';
+        break;
+      case AgentStates.online:
+        icon = 'check_circle';
+        break;
+      case AgentStates.removed:
+        icon = 'stop_circle';
+        break;
+    }
+    return icon;
+  }
 }
