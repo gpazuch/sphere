@@ -41,8 +41,11 @@ export class BreadcrumbsComponent implements OnInit {
  */
  buildBreadCrumb(route: ActivatedRoute, url: string = '', breadcrumbs: IBreadCrumb[] = []): IBreadCrumb[] {
   //If no routeConfig is avalailable we are on the root path
-  let label = route.routeConfig && route.routeConfig.data ? route.routeConfig.data['breadcrumb'] : '';
-  let path = route.routeConfig && route.routeConfig.path ? route.routeConfig.path : '';
+  let { routeConfig } = route;
+  let { data, path } = { path: '', data: { breadcrumb: '', disabled: false}, ...routeConfig};
+  let { breadcrumb: label, disabled } = data;
+
+
 
   // If the route is dynamic route such as ':id', remove it
   const lastRoutePart = path.split('/').pop() || '';
@@ -60,6 +63,7 @@ export class BreadcrumbsComponent implements OnInit {
   const breadcrumb: IBreadCrumb = {
       label: label,
       url: nextUrl,
+      disabled,
   };
   // Only adding route with non-empty label
   const newBreadcrumbs = breadcrumb.label ? [ ...breadcrumbs, breadcrumb ] : [ ...breadcrumbs];
@@ -76,4 +80,5 @@ export class BreadcrumbsComponent implements OnInit {
 export interface IBreadCrumb {
   label: string;
   url: string;
+  disabled?: boolean;
 }
