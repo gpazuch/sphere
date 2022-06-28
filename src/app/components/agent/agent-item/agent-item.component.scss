@@ -1,6 +1,31 @@
+@import 'src/colors.scss';
+
 .mat-card {
   display: block;
   width: 18em;
+
+  border-top-width: 1px;
+  border-top-style: solid;
+
+  .new {
+    border-top-color: $orb-violet;
+  }
+
+  .online {
+    border-top-color: $orb-green;
+  }
+
+  .offline {
+    border-top-color: $orb-pink;
+  }
+
+  .stale {
+    border-top-color: $orb-orange;
+  }
+
+  .removed {
+    border-top-color: $orb-gray-1;
+  }
 }
 
 .mat-card-title {

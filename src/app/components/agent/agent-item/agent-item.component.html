@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card [ngClass]="agent?.state || ''">
   <mat-card-title>
     <span>{{ agent?.name }}</span>
     <div class="state" [ngClass]="agent?.state || ''">
