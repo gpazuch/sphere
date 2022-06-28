@@ -9,9 +9,10 @@
     Filters
   </mat-toolbar-row>
 </mat-toolbar>
-<mat-grid-list cols="5">
-  <mat-grid-tile *ngFor="let groups of groups$ | async">
-    <app-group-item [group]="groups">
-    </app-group-item>
-  </mat-grid-tile>
-</mat-grid-list>
+<div class="container">
+  <app-group-item
+    class="item"
+    *ngFor="let groups of groups$ | async"
+    [group]="groups">
+  </app-group-item>
+</div>
