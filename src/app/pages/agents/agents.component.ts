@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { last, lastValueFrom, Observable } from 'rxjs';
 import { Agent } from 'src/app/services/interfaces/agent.interface';
 import { OrbService } from 'src/app/services/orb.service';
 

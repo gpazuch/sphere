@@ -37,6 +37,9 @@ export class AgentService {
           acc.total = acc.data.length;
           return acc;
         }, page),
+        map(resp => {
+          return resp.data;
+        }),
       );
   }
 

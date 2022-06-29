@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { Injectable, OnDestroy } from '@angular/core';
+import { map, Observable, retry, share, Subject, switchMap, takeUntil, timer } from 'rxjs';
 import { AgentService } from './agent.service';
 import { DatasetService } from './dataset.service';
 import { GroupService } from './group.service';
@@ -9,7 +9,11 @@ import { SinkService } from './sink.service';
 @Injectable({
   providedIn: 'root'
 })
-export class OrbService {
+export class OrbService implements OnDestroy {
+  // ms
+  pollInterval = 1000;
+  private stopPolling: Subject<void>;
+  private pollTimer: Observable<number>;
 
   constructor(
     private agent: AgentService,
@@ -17,13 +21,22 @@ export class OrbService {
     private group: GroupService,
     private policy: PolicyService,
     private sink: SinkService,
-  ) { }
+  ) {
+    this.stopPolling = new Subject();
+    this.pollTimer = timer(1, this.pollInterval).pipe(
+      takeUntil(this.stopPolling),
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.stopPolling.next();
+  }
 
   getAgentListView() {
-    return this.agent.getAllAgents().pipe(
-      map(resp => {
-        return resp.data;
-      }),
+    return this.pollTimer.pipe(
+      switchMap(() => this.agent.getAllAgents()),
+      retry(),
+      share(),
     );
   }
 
