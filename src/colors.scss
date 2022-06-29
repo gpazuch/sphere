@@ -77,3 +77,15 @@ $orb-grey-palette: (
     A700: #000000,
   )
 );
+
+h1, h2, h3, p {
+  color: $orb-theme-text-white;
+}
+
+span {
+  color: $orb-theme-text-gray;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: $orb-theme-text-gray !important;
+}

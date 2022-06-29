@@ -25,6 +25,7 @@ import { PolicyItemComponent } from './policy/policy-item/policy-item.component'
 import { SinkItemComponent } from './sink/sink-item/sink-item.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
     PolicyItemComponent,
     SinkItemComponent,
     BreadcrumbsComponent,
+    FilterComponent,
   ],
   imports: [
     CommonModule,
@@ -67,6 +69,7 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
     PolicyItemComponent,
     SinkItemComponent,
     BreadcrumbsComponent,
+    FilterComponent,
   ],
 })
 export class ComponentsModule {}

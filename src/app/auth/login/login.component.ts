@@ -11,8 +11,7 @@ import { AuthService, User } from '../auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
-  showPassword = false;
+  hide = true;
 
   loginForm: FormGroup;
 
@@ -29,8 +28,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
   ) {
     this.loginForm = this.fb.group({
-      email: [null, [Validators.required, Validators.pattern('.+@.+\..+on')]],
-      password: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.pattern('[a-z0-9]+@[a-z]+\.[a-z]{2,3}')]],
+      password: [null, [Validators.required, Validators.minLength(8)]],
     });
    }
 
