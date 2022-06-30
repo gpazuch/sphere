@@ -42,6 +42,7 @@ export class SinkService {
           acc.total = acc.data.length;
           return acc;
         }, page),
+        map(page => page.data),
       );
   }
 

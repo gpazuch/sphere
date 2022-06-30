@@ -42,6 +42,7 @@ export class GroupService {
           acc.total = acc.data.length;
           return acc;
         }, page),
+        map(page => page.data),
       );
   }
 
