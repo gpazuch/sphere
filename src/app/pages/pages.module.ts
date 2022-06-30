@@ -26,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatDividerModule,
     MatTabsModule,
     LayoutModule,
+    ScrollingModule,
   ],
   providers: [AgentService],
 })

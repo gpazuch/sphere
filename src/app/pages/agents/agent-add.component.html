@@ -1,4 +1,4 @@
-<div class="agent-container">
+<ng-container>
   <form [formGroup]="agentForm">
     <mat-form-field>
       <mat-label>Agent Name: </mat-label>
@@ -7,4 +7,4 @@
   </form>
   <app-tag-control [tags]="tags" (tagsChange)="(onTagsChange)">
   </app-tag-control>
-</div>
+</ng-container>
