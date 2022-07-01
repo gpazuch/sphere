@@ -3,8 +3,8 @@
 @use '@angular/material' as mat;
 @include mat.core();
 // Plus imports for other components in your app.
-@import './colors.scss';
-@import './typos.scss';
+@import 'colors.scss';
+@import 'typos.scss';
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -46,8 +46,8 @@ span, a, p, h1, h2, h3 {
   font-family: 'Montserrat', sans-serif;
 }
 
-.headline {
-  font-size: xx-large;
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: $orb-theme-text-gray !important;
 }
 
 .spacer {
@@ -81,9 +81,6 @@ input {
 }
 
 .mat-button {
-  padding: 0;
-  margin: 0;
-
   > span {
     color: $orb-theme-text-white !important;
     font-weight: 500;

@@ -1,9 +1,5 @@
-mat-chip-list {
-  display: flex;
-}
+:host {
 
-::ng-deep .mat-chip-list-wrapper {
-  margin: 2px -4px !important;
 }
 
 .mat-standard-chip {

@@ -10,10 +10,10 @@
     <span>Filters</span>
   </mat-toolbar-row>
 </mat-toolbar>
-<div class="container">
-  <app-agent-item
-    class="item"
-    *ngFor="let agent of agents$ | async"
-    [agent]="agent">
-  </app-agent-item>
-</div>
+<mat-grid-list class=""
+  [cols]="columnCount" rowHeight="2:3" (window:resize)="onResize($event)" gutterSize="10">
+  <mat-grid-tile *ngFor="let agent of agents$ | async">
+    <app-agent-item [agent]="agent"></app-agent-item>
+  </mat-grid-tile>
+</mat-grid-list>
+

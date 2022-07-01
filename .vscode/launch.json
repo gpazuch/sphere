@@ -3,18 +3,40 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "ng serve --proxy-config=proxy-config.json",
-      "type": "pwa-chrome",
-      "request": "launch",
-      "preLaunchTask": "npm: start",
-      "url": "http://localhost:4200/"
+      "name": "Attach to Chrome",
+      "port": 9222,
+      "request": "attach",
+      "type": "chrome",
+      "webRoot": "${workspaceFolder}"
     },
     {
-      "name": "ng test",
-      "type": "chrome",
+      "name": "Launch Chrome",
       "request": "launch",
-      "preLaunchTask": "npm: test",
-      "url": "http://localhost:9876/debug.html"
+      "type": "chrome",
+      "runtimeArgs": ["--remote-debugging-port=9222", "--user-data-dir=remote-debug-profile"],
+      "url": "http://localhost:4201",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Launch via NPM",
+      "request": "launch",
+
+      "runtimeArgs": [
+        "run-script",
+        "start"
+      ],
+      "runtimeExecutable": "npm",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
+    }
+
+  ],
+  "compounds": [
+    {
+      "name": "Compound",
+      "configurations": ["Launch via NPM", "Launch Chrome", "Attach to Chrome"]
     }
   ]
 }
