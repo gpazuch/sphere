@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Tags } from 'src/app/services/interfaces/tag';
 
 @Component({
@@ -8,11 +8,11 @@ import { Tags } from 'src/app/services/interfaces/tag';
   styleUrls: ['./agent-add.component.scss'],
 })
 export class AgentAddComponent implements OnInit {
-  agentForm: FormGroup;
+  agentForm: UntypedFormGroup;
 
   tags: Tags = {};
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: UntypedFormBuilder) {
     this.agentForm = fb.group({
       name: [null, [Validators.required]],
       tags: [null, [Validators.required]],

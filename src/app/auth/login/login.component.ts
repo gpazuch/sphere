@@ -1,6 +1,6 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, FormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { map, Observable, shareReplay } from 'rxjs';
 import { AuthService, User } from '../auth.service';
@@ -13,7 +13,7 @@ import { AuthService, User } from '../auth.service';
 export class LoginComponent implements OnInit {
   hide = true;
 
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
   .pipe(
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   );
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private auth: AuthService,
     private breakpointObserver: BreakpointObserver,
     private router: Router,

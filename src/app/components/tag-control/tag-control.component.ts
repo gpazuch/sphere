@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Tags } from 'src/app/services/interfaces/tag';
 
 @Component({
@@ -14,10 +14,10 @@ export class TagControlComponent implements OnInit {
   @Output()
   tagsChange: EventEmitter<Tags>;
 
-  tagForm: FormGroup;
+  tagForm: UntypedFormGroup;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
   ) {
     this.tagsChange = new EventEmitter<Tags>();
     this.tagForm = fb.group({
