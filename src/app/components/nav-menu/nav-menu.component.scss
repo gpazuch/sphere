@@ -43,6 +43,10 @@ mat-icon {
     }
   }
 
+  > img {
+    padding-left: 6px;
+  }
+
   .mat-primary {
     position: sticky;
     top: 0;

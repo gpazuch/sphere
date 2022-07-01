@@ -1,10 +1,10 @@
 <mat-card [ngClass]="agent?.state || ''">
   <mat-card-title class="label">
-    <span >{{ agent?.name }}</span>
-    <div class="body-regular state" [ngClass]="agent?.state || ''">
+    <span>{{ agent?.name }}</span>
+    <span class="body-regular state" [ngClass]="agent?.state || ''">
       <mat-icon>{{stateIcon()}}</mat-icon>
-      <span>{{ agent?.state }}</span>
-    </div>
+      {{ agent?.state }}
+    </span>
   </mat-card-title>
   <mat-card-subtitle>
     <span class="body-regular last_hb">{{ agent?.ts_last_hb | date: "M/d/yy, HH:mm z" }}</span>

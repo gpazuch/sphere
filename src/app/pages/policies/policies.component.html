@@ -1,16 +1,22 @@
 <mat-toolbar>
   <mat-toolbar-row>
-    Agent Policy List
+    <span class="page-title">Agent Policy List</span>
     <span class="spacer"></span>
-    <button mat-button routerLink="add">Create Policy</button>
+    <button mat-button class="mat-flat-button" color="accent" routerLink="add">
+      Create Policy
+    </button>
   </mat-toolbar-row>
   <mat-toolbar-row>
-    Filters
+    <span>Filters</span>
   </mat-toolbar-row>
 </mat-toolbar>
-<mat-grid-list cols="5">
-  <mat-grid-tile *ngFor="let policy of policies$ | async">
-    <app-policy-item [policy]="policy">
+<div class="container"
+fxLayout="row"
+fxLayoutAlign="space-evenly start">
+
+    <app-policy-item [policy]="policy"
+    fxFlex="auto"
+    *ngFor="let policy of policies$ | async">
     </app-policy-item>
-  </mat-grid-tile>
-</mat-grid-list>
+
+</div>

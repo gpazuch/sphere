@@ -1,6 +1,7 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
+
 @include mat.core();
 // Plus imports for other components in your app.
 @import 'colors.scss';
@@ -87,22 +88,3 @@ input {
   }
 }
 
-.new, .new > span {
-  color: $orb-violet;
-}
-
-.online, .online > span {
-  color: $orb-green;
-}
-
-.offline, .offline > span {
-  color: $orb-pink;
-}
-
-.stale, .stale > span {
-  color: $orb-orange;
-}
-
-.removed, .removed > span {
-  color: $orb-gray-1;
-}

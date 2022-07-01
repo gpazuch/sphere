@@ -1,16 +1,18 @@
 <mat-toolbar>
   <mat-toolbar-row>
-    Agent Group List
+    <span>Agent Group List</span>
     <span class="spacer"></span>
-    <button mat-button routerLink="add">Create Group</button>
+    <button mat-button class="mat-flat-button" color="accent" routerLink="add">Create Group</button>
   </mat-toolbar-row>
   <mat-toolbar-row>
     Filters
   </mat-toolbar-row>
 </mat-toolbar>
-<div class="container">
+<div class="container"
+fxLayout="row"
+fxLayoutAlign="space-evenly start">
   <app-group-item
-    class="item"
+    fxFlex="auto"
     *ngFor="let groups of groups$ | async"
     [group]="groups">
   </app-group-item>

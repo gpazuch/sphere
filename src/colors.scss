@@ -78,7 +78,7 @@ $orb-grey-palette: (
   )
 );
 
-h1, h2, h3, p {
+h1, h2, h3, p, .page-title{
   color: $orb-theme-text-white;
 }
 
@@ -88,4 +88,26 @@ span {
 
 .mat-form-field.mat-focused .mat-form-field-label {
   color: $orb-theme-text-gray !important;
+}
+
+mat-card,  mat-card-title > span {
+  &.new {
+    color: $orb-violet;
+  }
+
+  &.online {
+    color: $orb-green;
+  }
+
+  &.offline {
+    color: $orb-orange;
+  }
+
+  &.stale {
+    color: $orb-pink;
+  }
+
+  &.removed {
+    color: $orb-gray-1;
+  }
 }

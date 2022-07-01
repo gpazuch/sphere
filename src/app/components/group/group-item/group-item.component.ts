@@ -15,4 +15,14 @@ export class GroupItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  groupState() {
+    const {total, online} = this.group?.matching_agents || {online: 0, total: 0};
+    const hasAgents = !!total && total > 0;
+    const allOnline = !!hasAgents && !!online && total === online;
+
+    const state = (!hasAgents && 'offline') || (allOnline && 'online') || 'stale'
+
+    return state;
+  }
+
 }

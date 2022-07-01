@@ -27,6 +27,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     MatInputModule,
     MatDividerModule,
     MatTabsModule,
+    FlexLayoutModule,
     LayoutModule,
     ScrollingModule,
   ],

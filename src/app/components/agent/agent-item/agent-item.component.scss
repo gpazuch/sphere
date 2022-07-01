@@ -1,10 +1,9 @@
-:host {
-
-}
-
 .mat-card {
   border-top-width: 1px;
   border-top-style: solid;
+  min-width: 20ch;
+  max-width: max(calc(100% - 16px), 40ch);
+  min-height: 10em;
 
   > .mat-card-title {
     display: flex;
@@ -12,6 +11,7 @@
     align-items: center;
 
     .state {
+      padding-left: 5px;
       display: flex;
       align-items: center;
 
@@ -25,9 +25,8 @@
     float: right;
   }
 
-  > .mat-card-content {
-    padding-top: 14px;
-    height: fit-content;
-    width: fit-content;
+  > mat-card-content {
+    padding-top: 18px;
+
   }
 }

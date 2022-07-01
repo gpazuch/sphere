@@ -158,6 +158,12 @@ $orb-typography-config: mat.define-typography-config(
   }
 }
 
+.tag {
+  font-size: $size-small;
+  font-weight: $weight-semibold;
+  line-height: 12px;
+}
+
 .navigation {
   font-size: $size-small;
   font-weight: $weight-regular;
