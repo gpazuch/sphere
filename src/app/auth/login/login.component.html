@@ -13,7 +13,7 @@
             class="large-input"
             [type]="hide ? 'password' : 'text'"
             formControlName="password">
-      <button mat-icon-button matSuffix tabindex="99" ="ghost-button" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <button mat-icon-button matSuffix tabindex="99" class="ghost-button" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon class="large-input">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
       <mat-error *ngIf="loginForm.dirty || loginForm.touched">
