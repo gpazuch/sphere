@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,23 +13,22 @@ import { MAT_RIPPLE_GLOBAL_OPTIONS } from '@angular/material/core';
 import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FlexLayoutModule,
     ServicesModule,
     ComponentsModule,
-    PipesModule
+    PipesModule,
   ],
   providers: [
     TokenService,
     AuthService,
     AuthGuard,
-    {provide: MAT_RIPPLE_GLOBAL_OPTIONS, useValue: {disabled:true}},
+    { provide: MAT_RIPPLE_GLOBAL_OPTIONS, useValue: { disabled: true } },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

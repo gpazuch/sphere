@@ -1,14 +1,19 @@
+@import 'src/colors.scss';
+
 mat-chip-list {
   display: flex;
-}
-
-::ng-deep .mat-chip-list-wrapper {
-  margin: 2px -4px !important;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-flow: row;
 }
 
 .mat-standard-chip {
+  margin: 1px;
   min-height: 24px;
-  padding: 8px 8px;
+  > span {
+    color: $orb-theme-background;
+    white-space: nowrap;
+  }
 }
 
 

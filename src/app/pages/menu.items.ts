@@ -1,5 +1,5 @@
-import { environment } from "src/environments/environment";
-import {NavMenuItem} from "../components/nav-menu/nav-item.component";
+import { environment } from 'src/environments/environment';
+import { NavMenuItem } from '../components/nav-menu/nav-item.component';
 
 const items: NavMenuItem[] = [
   {
@@ -40,5 +40,5 @@ const dev_items: NavMenuItem[] = [
 
 export const NAV_MENU_ITEMS: NavMenuItem[] = [
   ...items,
-  ...environment.production ? [] : dev_items,
-]
+  ...(environment.production ? [] : dev_items),
+];

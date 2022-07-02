@@ -4,9 +4,9 @@
  * [Fleet Architecture]{@link https://github.com/ns1labs/orb/wiki/Architecture:-Fleet}
  */
 
-import { Agent } from "./agent.interface";
-import { OrbEntity } from "./orb.entity.interface";
-import { TagMatch } from "./tag.match.interface";
+import { Agent } from './agent.interface';
+import { OrbEntity } from './orb.entity.interface';
+import { TagMatch } from './tag.match.interface';
 
 /**
  * @interface AgentGroup
@@ -45,5 +45,4 @@ export interface AgentGroup extends OrbEntity {
    * @ignore
    */
   agents?: Agent[];
-
 }

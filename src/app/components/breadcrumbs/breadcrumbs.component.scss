@@ -1,6 +1,9 @@
+:host {
+  display: inline-flex;
+}
 .breadcrumb {
+  display: inline-flex;
   background: none;
-  font-size: 0.8em;
   margin: 0;
   padding-inline-start: 1em !important;
   margin-block-start: 1.75em !important;

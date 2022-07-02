@@ -3,9 +3,9 @@
   <mat-chip
   *ngFor="let tag of tags | keyvalue; index as i;"
   [style.background-color]="tag | tagColor">
-  {{ tag.key + ": " + tag.value }}
+  <span class="tag">{{ tag.key + ": " + tag.value }}</span>
 </mat-chip>
 <mat-chip *ngIf="(tags | json) === '{}'">
-  No tags.
+  <span class="tag">No tags.</span>
 </mat-chip>
 </mat-chip-list>

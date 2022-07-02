@@ -16,6 +16,7 @@ import { ForgotComponent } from './forgot/forgot.component';
 import { ResetComponent } from './reset/reset.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     ReactiveFormsModule,
     MatIconModule,
+    FlexLayoutModule,
     AuthRoutingModule
   ],
   providers: [

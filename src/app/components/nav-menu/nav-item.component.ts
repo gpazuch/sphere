@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 export interface NavMenuItem {
   title?: string;
@@ -11,7 +11,7 @@ export interface NavMenuItem {
 @Component({
   selector: 'app-nav-item',
   templateUrl: './nav-item.component.html',
-  styleUrls: ['./nav-item.component.scss']
+  styleUrls: ['./nav-item.component.scss'],
 })
 export class NavItemComponent implements OnInit {
   @Input()
@@ -21,7 +21,5 @@ export class NavItemComponent implements OnInit {
     this.item = {};
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

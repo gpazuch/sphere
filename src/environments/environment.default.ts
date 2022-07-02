@@ -30,11 +30,14 @@ const ORB = {
     datasets: '/policies/dataset',
     // *policies* service
     policies: '/policies/agent',
-
-  }
-}
+  },
+};
 
 export const environment = {
-  orbApi: {urlKeys: Object.keys(ORB.servicesUrls), ...ORB.orbApi, servicesUrls: ORB.servicesUrls},
+  orbApi: {
+    urlKeys: Object.keys(ORB.servicesUrls),
+    ...ORB.orbApi,
+    servicesUrls: ORB.servicesUrls,
+  },
   ...ORB.servicesUrls,
-}
+};

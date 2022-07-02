@@ -25,7 +25,7 @@ export interface DynamicInput {
     example?: string;
 
     // leave space for any extra
-    [propName: string]: string[]|number[]|string|number|any; // {[propName: string]: [] | {} | any}
+    [propName: string]: string[] | number[] | string | number | any; // {[propName: string]: [] | {} | any}
   };
 
   // optional name used when parsing results from service for ease of use
@@ -40,4 +40,3 @@ export interface DynamicInput {
 export interface DynamicFormConfig {
   [propName: string]: DynamicInput;
 }
-

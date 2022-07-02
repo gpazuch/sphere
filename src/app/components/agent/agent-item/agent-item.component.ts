@@ -1,24 +1,26 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Agent, AgentStates } from 'src/app/services/interfaces/agent.interface';
+import {
+  Agent,
+  AgentStates,
+} from 'src/app/services/interfaces/agent.interface';
 
 @Component({
   selector: 'app-agent-item',
   templateUrl: './agent-item.component.html',
-  styleUrls: ['./agent-item.component.scss']
+  styleUrls: ['./agent-item.component.scss'],
 })
 export class AgentItemComponent implements OnInit {
   @Input()
   agent: Agent = {};
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   stateIcon(): string {
     const { state } = this.agent;
     let icon = 'error';
-    switch(state) {
+    switch (state) {
       case AgentStates.new:
         icon = 'pending';
         break;

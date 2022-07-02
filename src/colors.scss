@@ -78,14 +78,36 @@ $orb-grey-palette: (
   )
 );
 
-h1, h2, h3, p {
+.page-title, .label, .large-input  {
   color: $orb-theme-text-white;
 }
 
-span {
+.body-regular {
   color: $orb-theme-text-gray;
 }
 
 .mat-form-field.mat-focused .mat-form-field-label {
   color: $orb-theme-text-gray !important;
+}
+
+mat-card, mat-card-title > span {
+  &.new {
+    color: $orb-violet;
+  }
+
+  &.online {
+    color: $orb-green;
+  }
+
+  &.offline {
+    color: $orb-orange;
+  }
+
+  &.stale {
+    color: $orb-pink;
+  }
+
+  &.removed {
+    color: $orb-gray-1;
+  }
 }

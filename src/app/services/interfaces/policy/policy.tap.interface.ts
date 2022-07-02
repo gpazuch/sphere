@@ -22,7 +22,7 @@ export interface PolicyTap {
   /**
    * agents
    */
-  agents?: {total?: number};
+  agents?: { total?: number };
 
   /**
    * input type
@@ -51,4 +51,3 @@ export interface PolicyTap {
    */
   filter_predefined?: { [propName: string]: string | number | boolean | any };
 }
-

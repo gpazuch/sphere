@@ -1,5 +1,5 @@
-<div class="agent-container">
-  <form [formGroup]="agentForm">
+<ng-container>
+  <form id="form" [formGroup]="agentForm" (submit)="onSave()">
     <mat-form-field>
       <mat-label>Agent Name: </mat-label>
       <input matInput formControlName="name" />
@@ -7,4 +7,15 @@
   </form>
   <app-tag-control [tags]="tags" (tagsChange)="(onTagsChange)">
   </app-tag-control>
-</div>
+  <button
+    mat-button
+    [disabled]="agentForm.invalid"
+    mat-flat-button
+    color="accent"
+    form="form"
+    type="submit"
+  >
+    Save
+  </button>
+  <button mat-button (click)="onDiscard()" color="warn">Discard</button>
+</ng-container>

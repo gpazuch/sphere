@@ -1,20 +1,27 @@
-<app-breadcrumbs></app-breadcrumbs>
 <mat-toolbar>
   <mat-toolbar-row>
-    <span>Agent List</span>
+    <span class="page-title">Agent List</span>
     <span class="spacer"></span>
     <button mat-button class="mat-flat-button"
-            color="accent"
-            routerLink="add">Create Agent</button>
+     color="accent"
+     (click)="addItem = true">
+      Create Agent
+    </button>
   </mat-toolbar-row>
   <mat-toolbar-row>
     <span>Filters</span>
   </mat-toolbar-row>
 </mat-toolbar>
-<div class="container">
+<div fxLayout="row" style="height: 100%">
+<div class="container"
+  fxLayoutAlign="space-evenly start">
   <app-agent-item
-    class="item"
+    fxFlex="1 1 auto"
     *ngFor="let agent of agents$ | async"
-    [agent]="agent">
-  </app-agent-item>
+    [agent]="agent"
+  ></app-agent-item>
+</div>
+<app-agent-add *ngIf="addItem"
+(onClose)="addItem = false"
+fxFlex="1 0 auto"></app-agent-add>
 </div>
