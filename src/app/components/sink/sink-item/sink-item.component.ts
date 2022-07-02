@@ -15,4 +15,9 @@ export class SinkItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  sinkState() {
+    const state = 'stale';
+    return state;
+  }
+
 }

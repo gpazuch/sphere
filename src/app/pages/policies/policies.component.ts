@@ -20,4 +20,9 @@ export class PoliciesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  policyState() {
+    const state = 'stale'
+    return state;
+  }
+
 }

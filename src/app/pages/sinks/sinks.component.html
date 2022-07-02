@@ -1,16 +1,19 @@
 <mat-toolbar>
   <mat-toolbar-row>
-    Sink List
+    <span class="page-title">Sink List</span>
     <span class="spacer"></span>
-    <button mat-button routerLink="add">Create Sink</button>
+    <button mat-button class="mat-flat-button" color="accent" routerLink="add">Create Sink</button>
   </mat-toolbar-row>
   <mat-toolbar-row>
-    Filters
+    <span>Filters</span>
   </mat-toolbar-row>
 </mat-toolbar>
-<mat-grid-list cols="5">
-  <mat-grid-tile *ngFor="let sink of sinks$ | async">
-    <app-sink-item [sink]="sink">
-    </app-sink-item>
-  </mat-grid-tile>
-</mat-grid-list>
+<div class="container"
+fxLayout="row"
+fxLayoutAlign="space-evenly start">
+  <app-sink-item [sink]="sink"
+  *ngFor="let sink of sinks$ | async"
+  fxFlex="1 1 auto">
+  </app-sink-item>
+
+</div>

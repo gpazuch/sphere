@@ -14,7 +14,7 @@
 fxLayout="row"
 fxLayoutAlign="space-evenly start">
   <app-agent-item
-    fxFlex="auto"
+    fxFlex="1 1 auto"
     *ngFor="let agent of agents$ | async"
     [agent]="agent"
   ></app-agent-item>
