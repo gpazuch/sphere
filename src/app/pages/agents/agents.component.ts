@@ -6,19 +6,16 @@ import { OrbService } from 'src/app/services/orb.service';
 @Component({
   selector: 'app-agents',
   templateUrl: './agents.component.html',
-  styleUrls: ['./agents.component.scss']
+  styleUrls: ['./agents.component.scss'],
 })
 export class AgentsComponent implements OnInit {
   agents$: Observable<Agent[]>;
 
   addItem = false;
 
-  constructor(
-    private orb: OrbService,
-  ) {
+  constructor(private orb: OrbService) {
     this.agents$ = this.orb.getAgentListView();
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

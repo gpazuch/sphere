@@ -1,11 +1,24 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 import { Tags } from 'src/app/services/interfaces/tag';
 
 @Component({
   selector: 'app-tag-control',
   templateUrl: './tag-control.component.html',
-  styleUrls: ['./tag-control.component.scss']
+  styleUrls: ['./tag-control.component.scss'],
 })
 export class TagControlComponent implements OnInit, AfterViewInit {
   key: string;
@@ -27,10 +40,7 @@ export class TagControlComponent implements OnInit, AfterViewInit {
   @Output()
   tagsChange: EventEmitter<Tags>;
 
-
-  constructor(
-    private fb: UntypedFormBuilder,
-  ) {
+  constructor(private fb: UntypedFormBuilder) {
     this.required = true;
     this.tags = {};
     this.tagsChange = new EventEmitter<Tags>();
@@ -39,8 +49,7 @@ export class TagControlComponent implements OnInit, AfterViewInit {
     this.value = '';
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit() {
     if (this.focusAfterViewInit) this.focus();
@@ -65,5 +74,4 @@ export class TagControlComponent implements OnInit, AfterViewInit {
     delete this.tags[tag];
     this.tagsChange.emit(this.tags);
   }
-
 }

@@ -1,7 +1,7 @@
-import {Component, Input} from '@angular/core';
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {map, Observable, shareReplay} from 'rxjs';
-import {NavMenuItem} from "./nav-item.component";
+import { Component, Input } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { map, Observable, shareReplay } from 'rxjs';
+import { NavMenuItem } from './nav-item.component';
 
 @Component({
   selector: 'app-nav-menu',
@@ -9,18 +9,17 @@ import {NavMenuItem} from "./nav-item.component";
   styleUrls: ['./nav-menu.component.scss'],
 })
 export class NavMenuComponent {
-
   @Input()
   items: NavMenuItem[];
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
     .pipe(
-      map(result => result.matches),
+      map((result) => result.matches),
       shareReplay()
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {
     this.items = [];
   }
-
 }

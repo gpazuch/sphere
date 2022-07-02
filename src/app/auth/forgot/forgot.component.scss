@@ -1,9 +1,9 @@
-@import 'src/styles';
+@import "src/styles";
 
 .login-container {
-    background-color: rgba($color: $orb-theme-background-lighter, $alpha: 0.7);
-    padding: 64px;
-    min-width: 60ch;
+  background-color: rgba($color: $orb-theme-background-lighter, $alpha: 0.7);
+  padding: 64px;
+  min-width: 60ch;
 }
 
 .login-form {

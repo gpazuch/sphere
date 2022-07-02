@@ -1,4 +1,4 @@
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 
 $size-small: 12px;
 $size-regular: 14px;
@@ -11,7 +11,7 @@ $weight-semibold: 600;
 $weight-bold: 700;
 
 $orb-text-page-title: mat.define-typography-level(
-  $font-family: 'Montserrat',
+  $font-family: "Montserrat",
   $font-weight: $weight-regular,
   $font-size: $size-xlarge,
   $line-height: 32px,
@@ -19,7 +19,7 @@ $orb-text-page-title: mat.define-typography-level(
 );
 
 $orb-text-large-input: mat.define-typography-level(
-  $font-family: 'Montserrat',
+  $font-family: "Montserrat",
   $font-weight: $weight-medium,
   $font-size: $size-large,
   $line-height: 24px,
@@ -27,7 +27,7 @@ $orb-text-large-input: mat.define-typography-level(
 );
 
 $orb-text-button: mat.define-typography-level(
-  $font-family: 'Montserrat',
+  $font-family: "Montserrat",
   $font-weight: $weight-regular,
   $font-size: $size-regular,
   $line-height: 16px,
@@ -35,7 +35,7 @@ $orb-text-button: mat.define-typography-level(
 );
 
 $orb-text-button-semibold: mat.define-typography-level(
-  $font-family: 'Montserrat',
+  $font-family: "Montserrat",
   $font-weight: $weight-semibold,
   $font-size: $size-regular,
   $line-height: 16px,
@@ -43,7 +43,7 @@ $orb-text-button-semibold: mat.define-typography-level(
 );
 
 $orb-text-label: mat.define-typography-level(
-  $font-family: 'Montserrat',
+  $font-family: "Montserrat",
   $font-weight: $weight-medium,
   $font-size: $size-regular,
   $line-height: 18px,
@@ -51,7 +51,7 @@ $orb-text-label: mat.define-typography-level(
 );
 
 $orb-text-body-regular: mat.define-typography-level(
-  $font-family: 'Montserrat',
+  $font-family: "Montserrat",
   $font-weight: $weight-regular,
   $font-size: $size-regular,
   $line-height: 20px,
@@ -59,7 +59,7 @@ $orb-text-body-regular: mat.define-typography-level(
 );
 
 $orb-text-body-selected: mat.define-typography-level(
-  $font-family: 'Montserrat',
+  $font-family: "Montserrat",
   $font-weight: $weight-medium,
   $font-size: $size-regular,
   $line-height: 20px,
@@ -67,7 +67,7 @@ $orb-text-body-selected: mat.define-typography-level(
 );
 
 $orb-text-breadcrumbs: mat.define-typography-level(
-  $font-family: 'Montserrat',
+  $font-family: "Montserrat",
   $font-weight: $weight-medium,
   $font-size: $size-small,
   $line-height: 12px,
@@ -75,7 +75,7 @@ $orb-text-breadcrumbs: mat.define-typography-level(
 );
 
 $orb-text-nav-selected: mat.define-typography-level(
-  $font-family: 'Montserrat',
+  $font-family: "Montserrat",
   $font-weight: $weight-bold,
   $font-size: $size-small,
   $line-height: 12px,
@@ -83,7 +83,7 @@ $orb-text-nav-selected: mat.define-typography-level(
 );
 
 $orb-text-nav: mat.define-typography-level(
-  $font-family: 'Montserrat',
+  $font-family: "Montserrat",
   $font-weight: $weight-regular,
   $font-size: $size-small,
   $line-height: 12px,
@@ -91,19 +91,19 @@ $orb-text-nav: mat.define-typography-level(
 );
 
 $orb-typography-config: mat.define-typography-config(
-    $display-4: $orb-text-nav,
-    $display-3: $orb-text-breadcrumbs,
-    $display-2: $orb-text-nav-selected,
-    $display-1: $orb-text-button,
-    $headline: $orb-text-label,
-    $title: $orb-text-page-title,
-    $subheading-2: $orb-text-body-selected,
-    $subheading-1: $orb-text-body-selected,
-    $body-1: $orb-text-body-regular,
-    $body-2: $orb-text-body-regular,
-    $caption: $orb-text-breadcrumbs,
-    $button: $orb-text-button,
-    $input: $orb-text-large-input,
+  $display-4: $orb-text-nav,
+  $display-3: $orb-text-breadcrumbs,
+  $display-2: $orb-text-nav-selected,
+  $display-1: $orb-text-button,
+  $headline: $orb-text-label,
+  $title: $orb-text-page-title,
+  $subheading-2: $orb-text-body-selected,
+  $subheading-1: $orb-text-body-selected,
+  $body-1: $orb-text-body-regular,
+  $body-2: $orb-text-body-regular,
+  $caption: $orb-text-breadcrumbs,
+  $button: $orb-text-button,
+  $input: $orb-text-large-input,
 );
 
 .page-title {

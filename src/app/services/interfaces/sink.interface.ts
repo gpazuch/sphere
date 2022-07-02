@@ -4,15 +4,15 @@
  * [Sinks Architecture]{@link https://github.com/ns1labs/orb/wiki/Architecture:-Sinks}
  */
 
-import { OrbEntity } from "./orb.entity.interface";
-import { AWSConfig } from "./sink/config/aws.config.interface";
-import { PrometheusConfig } from "./sink/config/prometheus.config.interface";
+import { OrbEntity } from './orb.entity.interface';
+import { AWSConfig } from './sink/config/aws.config.interface';
+import { PrometheusConfig } from './sink/config/prometheus.config.interface';
 
 /**
  * @interface Sink
  */
 export interface Sink extends OrbEntity {
-    /**
+  /**
    * Description {string}
    */
   description?: string;
@@ -52,15 +52,17 @@ export interface Sink extends OrbEntity {
   config?: SinkTypes;
 }
 
-export type SinkTypes = PrometheusConfig|AWSConfig;
+export type SinkTypes = PrometheusConfig | AWSConfig;
 
 /**
  * Prometheus Sink Type
  * @type PromSink
  */
-export type PromSink = Sink|{
-  config?: PrometheusConfig;
-};
+export type PromSink =
+  | Sink
+  | {
+      config?: PrometheusConfig;
+    };
 
 /**
  * for future

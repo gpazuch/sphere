@@ -6,13 +6,10 @@ import { Agent } from './interfaces/agent.interface';
 import { OrbPagination } from './interfaces/pagination.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AgentService {
-
-  constructor(
-    private http: HttpClient,
-  ) { }
+  constructor(private http: HttpClient) {}
 
   addAgent(agent: Agent) {
     return this.http.post(environment.agents, agent);
@@ -23,28 +20,32 @@ export class AgentService {
   }
 
   getAllAgents() {
-    let page = {order: 'name', dir: 'asc', limit: 100, offset: 0} as OrbPagination<Agent>;
+    let page = {
+      order: 'name',
+      dir: 'asc',
+      limit: 100,
+      offset: 0,
+    } as OrbPagination<Agent>;
 
-    return this.getAgentPage(page)
-      .pipe(
-        expand(page => {
-          return page.next ? this.getAgentPage(page.next) : EMPTY;
-        }),
-        delay(100),
-        reduce((acc, value) => {
-          acc.data = [...acc?.data || [], ...value?.data || []];
-          acc.offset = 0;
-          acc.total = acc.data.length;
-          return acc;
-        }, page),
-        map(resp => {
-          return resp.data;
-        }),
-      );
+    return this.getAgentPage(page).pipe(
+      expand((page) => {
+        return page.next ? this.getAgentPage(page.next) : EMPTY;
+      }),
+      delay(100),
+      reduce((acc, value) => {
+        acc.data = [...(acc?.data || []), ...(value?.data || [])];
+        acc.offset = 0;
+        acc.total = acc.data.length;
+        return acc;
+      }, page),
+      map((resp) => {
+        return resp.data;
+      })
+    );
   }
 
   getAgentPage(page: OrbPagination<Agent>) {
-    const {order, dir, offset, limit} = page;
+    const { order, dir, offset, limit } = page;
 
     let params = new HttpParams()
       .set('order', order)
@@ -52,15 +53,26 @@ export class AgentService {
       .set('offset', offset.toString())
       .set('limit', limit.toString());
 
-    return this.http.get(`${environment.agents}`, {params})
-    .pipe(map((resp: any) => {
-      const {order, dir, offset, limit, total, agents} = resp;
-      const next = offset + limit < total && {
-        limit, order, dir,
-        offset: (parseInt(offset, 10) + parseInt(limit, 10)).toString(),
-      }
-      return {order, dir, offset, limit, total, data: agents, next} as OrbPagination<Agent>;
-    }));
+    return this.http.get(`${environment.agents}`, { params }).pipe(
+      map((resp: any) => {
+        const { order, dir, offset, limit, total, agents } = resp;
+        const next = offset + limit < total && {
+          limit,
+          order,
+          dir,
+          offset: (parseInt(offset, 10) + parseInt(limit, 10)).toString(),
+        };
+        return {
+          order,
+          dir,
+          offset,
+          limit,
+          total,
+          data: agents,
+          next,
+        } as OrbPagination<Agent>;
+      })
+    );
   }
 
   updateAgent(agent: Agent) {
@@ -72,16 +84,16 @@ export class AgentService {
     return this.http.delete(`${environment.agents}/${id}`);
   }
 
-  getMatchingAgents(tags: any) {
-
-  }
+  getMatchingAgents(tags: any) {}
 
   resetAgent(id: string) {
     return this.http.post(`${environment.agents}/${id}/rpc/reset`, {});
   }
 
   validateAgent(agent: Agent) {
-    return this.http.post(environment.agentValidate,
-      {...agent, validate_only: true});
+    return this.http.post(environment.agentValidate, {
+      ...agent,
+      validate_only: true,
+    });
   }
 }

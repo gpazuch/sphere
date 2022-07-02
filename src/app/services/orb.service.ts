@@ -1,18 +1,27 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { map, Observable, retry, share, Subject, switchMap, takeUntil, timer } from 'rxjs';
+import {
+  map,
+  Observable,
+  retry,
+  share,
+  Subject,
+  switchMap,
+  takeUntil,
+  timer,
+} from 'rxjs';
 import { AgentService } from './agent.service';
 import { DatasetService } from './dataset.service';
 import { GroupService } from './group.service';
 import { PolicyService } from './policy.service';
 import { SinkService } from './sink.service';
-import {Agent} from "./interfaces/agent.interface";
-import {AgentGroup} from "./interfaces/group.interface";
-import {Dataset} from "./interfaces/dataset.interface";
-import {AgentPolicy} from "./interfaces/policy.interface";
-import {Sink} from "./interfaces/sink.interface";
+import { Agent } from './interfaces/agent.interface';
+import { AgentGroup } from './interfaces/group.interface';
+import { Dataset } from './interfaces/dataset.interface';
+import { AgentPolicy } from './interfaces/policy.interface';
+import { Sink } from './interfaces/sink.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OrbService implements OnDestroy {
   // ms
@@ -30,41 +39,41 @@ export class OrbService implements OnDestroy {
     private dataset: DatasetService,
     private group: GroupService,
     private policy: PolicyService,
-    private sink: SinkService,
+    private sink: SinkService
   ) {
     this.stopPolling = new Subject<void>();
     this.pollTimer = timer(1, this.pollInterval).pipe(
-      takeUntil(this.stopPolling),
+      takeUntil(this.stopPolling)
     );
 
     this.agents$ = this.pollTimer.pipe(
       switchMap(() => this.agent.getAllAgents()),
       retry(),
-      share(),
+      share()
     );
 
     this.groups$ = this.pollTimer.pipe(
       switchMap(() => this.group.getAllGroups()),
       retry(),
-      share(),
+      share()
     );
 
     this.policies$ = this.pollTimer.pipe(
       switchMap(() => this.policy.getAllPolicies()),
       retry(),
-      share(),
+      share()
     );
 
     this.datasets$ = this.pollTimer.pipe(
       switchMap(() => this.dataset.getAllDatasets()),
       retry(),
-      share(),
+      share()
     );
 
     this.sinks$ = this.pollTimer.pipe(
       switchMap(() => this.sink.getAllSinks()),
       retry(),
-      share(),
+      share()
     );
   }
 

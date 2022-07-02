@@ -13,9 +13,7 @@ import { MAT_RIPPLE_GLOBAL_OPTIONS } from '@angular/material/core';
 import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,14 +21,14 @@ import { PipesModule } from './pipes/pipes.module';
     FlexLayoutModule,
     ServicesModule,
     ComponentsModule,
-    PipesModule
+    PipesModule,
   ],
   providers: [
     TokenService,
     AuthService,
     AuthGuard,
-    {provide: MAT_RIPPLE_GLOBAL_OPTIONS, useValue: {disabled:true}},
+    { provide: MAT_RIPPLE_GLOBAL_OPTIONS, useValue: { disabled: true } },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -6,13 +6,12 @@ export enum TokenDomains {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TokenService {
-
   public jwt: JwtHelperService = new JwtHelperService();
 
-  constructor() { }
+  constructor() {}
 
   setToken(token: string, domain: TokenDomains) {
     window.sessionStorage.removeItem(domain);

@@ -5,7 +5,7 @@
  * [Sinks Architecture]{@link https://github.com/ns1labs/orb/wiki/Architecture:-Sinks}
  */
 
-import { SinkConfig } from "../sink.config.interface";
+import { SinkConfig } from '../sink.config.interface';
 
 /**
  * @interface PrometheusConfig

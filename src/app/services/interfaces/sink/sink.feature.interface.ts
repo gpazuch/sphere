@@ -4,7 +4,7 @@
  * [Sinks Architecture]{@link https://github.com/ns1labs/orb/wiki/Architecture:-Sinks}
  */
 
-import { DynamicFormConfig } from "../dynamic.form.interface";
+import { DynamicFormConfig } from '../dynamic.form.interface';
 
 /**
  * @interface SinkFeature
