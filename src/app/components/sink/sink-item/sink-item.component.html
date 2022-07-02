@@ -4,12 +4,15 @@
     <span [ngClass]="sinkState()">{{ sink?.state }}</span>
   </mat-card-title>
   <mat-card-subtitle>
-    <span class="body-regular last_hb">{{ sink?.ts_created | date: "M/d/yy, HH:mm z" }}</span>
+    <span class="body-regular last_hb">{{
+      sink?.ts_created | date: "M/d/yy, HH:mm z"
+    }}</span>
   </mat-card-subtitle>
   <mat-card-content>
-    <p class="body-regular">{{ sink?. error }}</p>
+    <p class="body-regular">{{ sink?.error }}</p>
     <p class="body-regular">{{ sink?.backend }}</p>
     <app-tag-display [tags]="sink.tags">
-      <p class="body-regular">Tags</p></app-tag-display>
+      <p class="body-regular">Tags</p></app-tag-display
+    >
   </mat-card-content>
 </mat-card>

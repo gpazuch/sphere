@@ -8,9 +8,8 @@ describe('TagDisplayComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TagDisplayComponent ]
-    })
-    .compileComponents();
+      declarations: [TagDisplayComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

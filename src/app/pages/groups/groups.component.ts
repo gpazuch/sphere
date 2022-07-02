@@ -6,18 +6,14 @@ import { OrbService } from 'src/app/services/orb.service';
 @Component({
   selector: 'app-groups',
   templateUrl: './groups.component.html',
-  styleUrls: ['./groups.component.scss']
+  styleUrls: ['./groups.component.scss'],
 })
 export class GroupsComponent implements OnInit {
   groups$: Observable<AgentGroup[]>;
 
-  constructor(
-    private orb: OrbService,
-  ) {
+  constructor(private orb: OrbService) {
     this.groups$ = orb.getGroupListView();
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

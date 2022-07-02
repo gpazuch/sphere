@@ -6,23 +6,19 @@ import { OrbService } from 'src/app/services/orb.service';
 @Component({
   selector: 'app-policies',
   templateUrl: './policies.component.html',
-  styleUrls: ['./policies.component.scss']
+  styleUrls: ['./policies.component.scss'],
 })
 export class PoliciesComponent implements OnInit {
   policies$: Observable<AgentPolicy[]>;
 
-  constructor(
-    private orb: OrbService,
-  ) {
+  constructor(private orb: OrbService) {
     this.policies$ = orb.getPolicyListView();
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   policyState() {
-    const state = 'stale'
+    const state = 'stale';
     return state;
   }
-
 }
