@@ -10,10 +10,10 @@
     <span class="last_hb"> {{ group?.ts_created | date: "M/d/yy, HH:mm z" }}</span>
   </mat-card-subtitle>
   <mat-card-content>
-    <span class="label">{{ group?.description }}</span>
+    <p class="body-regular">{{ group?.description }}</p>
     <br>
     <app-tag-display [tags]="group.tags">
-      <span class="label">Tags</span>
+      <p class="body-regular">Tags</p>
     </app-tag-display>
   </mat-card-content>
 </mat-card>

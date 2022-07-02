@@ -78,11 +78,11 @@ $orb-grey-palette: (
   )
 );
 
-h1, h2, h3, p, .page-title{
+.page-title, .label, .large-input  {
   color: $orb-theme-text-white;
 }
 
-span {
+.body-regular {
   color: $orb-theme-text-gray;
 }
 
@@ -90,7 +90,7 @@ span {
   color: $orb-theme-text-gray !important;
 }
 
-mat-card,  mat-card-title > span {
+mat-card, mat-card-title > span {
   &.new {
     color: $orb-violet;
   }

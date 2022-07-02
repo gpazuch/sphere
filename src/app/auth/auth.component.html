@@ -1,7 +1,11 @@
-<div class="auth-container">
-  <div class="logo-container">
+<div class="auth-container"
+     fxLayout.gt-md="row"
+     fxLayout.lt-sm="column"
+     fxLayoutAlign.gt-sm="space-between stretch"
+     fxLayoutAlign="start stretch">
+  <div class="logo-container" fxFlex="55" fxLayout="column" fxLayoutAlign="center">
     <img src="../../assets/images/orb_logo_100.webp" class="orb-logo">
-    <p class="title">An Open-Source dynamic edge observability platform</p>
+    <p class="page-title">An Open-Source dynamic<br>edge observability<br>platform</p>
   </div>
   <router-outlet #routerauth></router-outlet>
 </div>

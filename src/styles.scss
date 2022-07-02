@@ -81,10 +81,21 @@ input {
   }
 }
 
-.mat-button {
+.ghost-button {
+  padding: 0;
+  margin: 0;
+
   > span {
-    color: $orb-theme-text-white !important;
-    font-weight: 500;
+    color: $orb-white;
   }
 }
 
+.link-button {
+  padding: 0;
+  margin: 0;
+
+  > span {
+    color: $orb-blue;
+    text-decoration: underline;
+  }
+}

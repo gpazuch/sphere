@@ -40,6 +40,11 @@ export interface AgentPolicy extends OrbEntity {
   ts_created?: string;
 
   /**
+   * A timestamp of creation {string}
+   */
+  ts_last_modified?: string;
+
+  /**
    * Agent backend specific policy data {{[propName: string]: string}}
    */
   policy?: PolicyConfig;

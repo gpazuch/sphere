@@ -15,4 +15,10 @@ export class PolicyItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  policyState() {
+    const state = 'stale';
+
+    return state;
+  }
+
 }

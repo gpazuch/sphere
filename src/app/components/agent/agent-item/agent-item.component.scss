@@ -27,6 +27,11 @@
 
   > mat-card-content {
     padding-top: 18px;
-
+    display: flex;
+    flex-direction: column;
   }
+}
+
+app-tag-display {
+  padding-bottom: 8px;
 }
