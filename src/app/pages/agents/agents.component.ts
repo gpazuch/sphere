@@ -11,7 +11,7 @@ import { OrbService } from 'src/app/services/orb.service';
 export class AgentsComponent implements OnInit {
   agents$: Observable<Agent[]>;
 
-  columnCount = 5;
+  addItem = false;
 
   constructor(
     private orb: OrbService,
@@ -21,9 +21,4 @@ export class AgentsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  onResize(event: any) {
-    this.columnCount = event?.target?.innerWidth / 400;
-  }
-
 }

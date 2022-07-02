@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AgentService } from 'src/app/services/agent.service';
 import { Tags } from 'src/app/services/interfaces/tag';
@@ -10,6 +10,9 @@ import { OrbService } from 'src/app/services/orb.service';
   styleUrls: ['./agent-add.component.scss'],
 })
 export class AgentAddComponent implements OnInit {
+  @Output()
+  onClose: EventEmitter<void>;
+
   agentForm: UntypedFormGroup;
 
   tags: Tags = {};
@@ -19,6 +22,7 @@ export class AgentAddComponent implements OnInit {
     private orb: OrbService,
     private agents: AgentService,
   ) {
+    this.onClose = new EventEmitter();
     this.agentForm = fb.group({
       name: [null, [Validators.required]],
       orb_tags: [null, [Validators.required]],
@@ -34,5 +38,9 @@ export class AgentAddComponent implements OnInit {
   onSave() {
     const agent = this.agentForm.value;
     this.agents.addAgent(agent).subscribe();
+  }
+
+  onDiscard() {
+    this.onClose.emit();
   }
 }

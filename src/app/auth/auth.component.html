@@ -1,11 +1,11 @@
 <div class="auth-container"
-     fxLayout.gt-md="row"
      fxLayout.lt-sm="column"
+     fxLayout.gt-sm="row"
      fxLayoutAlign.gt-sm="space-between stretch"
      fxLayoutAlign="start stretch">
-  <div class="logo-container" fxFlex="55" fxLayout="column" fxLayoutAlign="center">
-    <img src="../../assets/images/orb_logo_100.webp" class="orb-logo">
-    <p class="page-title">An Open-Source dynamic<br>edge observability<br>platform</p>
+  <div class="logo-container" fxFlex fxLayout="column" fxLayoutAlign="center start">
+    <img src="../../assets/images/orb_logo_100.webp" loading="lazy" class="orb-logo">
+    <p class="page-title">An <button mat-button class="link-button page-title">Open-Source</button> dynamic<br>edge observability<br>platform</p>
   </div>
   <router-outlet #routerauth></router-outlet>
 </div>

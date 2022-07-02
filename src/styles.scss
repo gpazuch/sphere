@@ -93,9 +93,15 @@ input {
 .link-button {
   padding: 0;
   margin: 0;
-
+  min-width: 0;
   > span {
     color: $orb-blue;
     text-decoration: underline;
   }
+}
+
+
+button.login-button {
+  width: 100%;
+  margin-bottom: 2ch;
 }

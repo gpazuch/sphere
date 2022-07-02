@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-forgot',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotComponent implements OnInit {
 
-  constructor() { }
+  forgotForm: UntypedFormGroup;
+
+  constructor(
+    private fb: UntypedFormBuilder,
+    private auth: AuthService,
+    private router: Router,
+  ) {
+    this.forgotForm = this.fb.group({
+      email: [null, [Validators.required, Validators.pattern('[a-z0-9]+@[a-z]+\.[a-z]{2,3}')]],
+    });
+  }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(): void{
+
   }
 
 }
