@@ -12,48 +12,47 @@ export interface User {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor(
-    private http: HttpClient,
-    private token: TokenService,
-  ) { }
+  constructor(private http: HttpClient, private token: TokenService) {}
 
   register(user: User) {
-    this.http.post<HttpResponse<null>>(environment.users, user, {observe: 'response'})
-    .pipe(
-      catchError(error => error),
-      tap((body: any) => {
-        if(body?.token){
-          this.token.setToken(body.token, TokenDomains.OrbAPI);
-        }
-      }),
-      switchMap(() => this.login(user)),
-    )
+    return this.http
+      .post<HttpResponse<null>>(environment.users, user, {
+        observe: 'response',
+      })
+      .pipe(
+        catchError((error) => error),
+        tap((body: any) => {
+          if (body?.token) {
+            this.token.setToken(body.token, TokenDomains.OrbAPI);
+          }
+        }),
+        switchMap(() => this.login(user))
+      );
   }
 
   login(user: User) {
-    return this.http.post(environment.login, user)
-    .pipe(
+    return this.http.post(environment.login, user).pipe(
       tap((body: any) => {
-        if(body?.token){
+        if (body?.token) {
           this.token.setToken(body.token, TokenDomains.OrbAPI);
         }
       }),
-      catchError(error=>error));
+      catchError((error) => error)
+    );
   }
 
   logout() {
     window.sessionStorage.clear();
   }
 
-  forgotPassword() {
-
+  forgotPassword(email: { email: string }) {
+    return this.http
+      .post(environment.requestPasswd, email)
+      .pipe(catchError((error) => error));
   }
 
-  resetPassword() {
-
-  }
+  resetPassword() {}
 }
