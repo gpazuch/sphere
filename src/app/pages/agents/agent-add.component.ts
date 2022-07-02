@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { AgentService } from 'src/app/services/agent.service';
 import { Tags } from 'src/app/services/interfaces/tag';
+import { OrbService } from 'src/app/services/orb.service';
 
 @Component({
   selector: 'app-agent-add',
@@ -12,14 +14,25 @@ export class AgentAddComponent implements OnInit {
 
   tags: Tags = {};
 
-  constructor(private fb: UntypedFormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private orb: OrbService,
+    private agents: AgentService,
+  ) {
     this.agentForm = fb.group({
       name: [null, [Validators.required]],
-      tags: [null, [Validators.required]],
+      orb_tags: [null, [Validators.required]],
     });
   }
 
   ngOnInit(): void {}
 
-  onTagsChange(tags: Tags) {}
+  onTagsChange(tags: Tags) {
+    this.agentForm.patchValue({orb_tags: {...tags}}, {emitEvent: true});
+  }
+
+  onSave() {
+    const agent = this.agentForm.value;
+    this.agents.addAgent(agent).subscribe();
+  }
 }

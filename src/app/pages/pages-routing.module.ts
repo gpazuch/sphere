@@ -38,7 +38,7 @@ const children = [
             path: 'add',
             component: AgentAddComponent,
             data: {
-              breadcrumb: 'Agents Add',
+              breadcrumb: 'Create New Agent',
             },
           },
         ],

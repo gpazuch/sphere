@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Tags } from 'src/app/services/interfaces/tag';
 
@@ -7,36 +7,62 @@ import { Tags } from 'src/app/services/interfaces/tag';
   templateUrl: './tag-control.component.html',
   styleUrls: ['./tag-control.component.scss']
 })
-export class TagControlComponent implements OnInit {
+export class TagControlComponent implements OnInit, AfterViewInit {
+  key: string;
+
+  value: string;
+
+  @ViewChild('keyInput')
+  keyInput!: ElementRef;
+
   @Input()
-  tags: Tags = {};
+  focusAfterViewInit!: boolean;
+
+  @Input()
+  tags: Tags;
+
+  @Input()
+  required: boolean;
 
   @Output()
   tagsChange: EventEmitter<Tags>;
 
-  tagForm: UntypedFormGroup;
 
   constructor(
     private fb: UntypedFormBuilder,
   ) {
+    this.required = true;
+    this.tags = {};
     this.tagsChange = new EventEmitter<Tags>();
-    this.tagForm = fb.group({
-      key: [null, Validators.required],
-      value: [null],
-    })
+    this.focusAfterViewInit = false;
+    this.key = '';
+    this.value = '';
   }
 
   ngOnInit(): void {
   }
 
-  onRemoveTag(tag: any) {
-    const [key, value] = tag
+  ngAfterViewInit() {
+    if (this.focusAfterViewInit) this.focus();
   }
 
-  onAddTag(tag: any) {
-    const {key, value} = this.tagForm.value;
-    this.tags[key] = value;
-    this.tagForm.reset();
+  public focus() {
+    this.keyInput.nativeElement.focus();
+  }
+
+  onAddTag() {
+    this.tags[this.key] = this.value;
+
+    this.tagsChange.emit(this.tags);
+
+    this.key = '';
+    this.value = '';
+
+    this.keyInput.nativeElement.focus();
+  }
+
+  onRemoveTag(tag: any) {
+    delete this.tags[tag];
     this.tagsChange.emit(this.tags);
   }
 

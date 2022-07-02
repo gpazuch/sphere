@@ -14,7 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgentItemComponent } from './agent/agent-item/agent-item.component';
 import { TagDisplayComponent } from './tag-display/tag-display.component';
 import { TagControlComponent } from './tag-control/tag-control.component';
@@ -57,7 +57,9 @@ import { FilterComponent } from './filter/filter.component';
     MatCardModule,
     ReactiveFormsModule,
     MatChipsModule,
+    MatIconModule,
     PipesModule,
+    FormsModule,
   ],
   exports: [
     NavMenuComponent,
