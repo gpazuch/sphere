@@ -4,7 +4,9 @@
     <span class="spacer"></span>
     <button mat-button routerLink="add">Create Dataset</button>
   </mat-toolbar-row>
-  <mat-toolbar-row> Filters </mat-toolbar-row>
+  <mat-toolbar-row>
+    <app-filter></app-filter>
+  </mat-toolbar-row>
 </mat-toolbar>
 <mat-grid-list cols="5">
   <mat-grid-tile *ngFor="let dataset of datasets$ | async">

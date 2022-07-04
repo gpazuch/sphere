@@ -1,12 +1,14 @@
 <mat-toolbar>
   <mat-toolbar-row>
-    <span>Agent Group List</span>
+    <span class="page-title">Agent Group List</span>
     <span class="spacer"></span>
     <button mat-button class="mat-flat-button" color="accent" routerLink="add">
       Create Group
     </button>
   </mat-toolbar-row>
-  <mat-toolbar-row> Filters </mat-toolbar-row>
+  <mat-toolbar-row>
+    <app-filter></app-filter>
+  </mat-toolbar-row>
 </mat-toolbar>
 <div class="container" fxLayout="row" fxLayoutAlign="space-evenly start">
   <app-group-item

@@ -14,6 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgentItemComponent } from './agent/agent-item/agent-item.component';
 import { TagDisplayComponent } from './tag-display/tag-display.component';
@@ -60,6 +61,7 @@ import { AgentAddComponent } from './agent/agent-add/agent-add.component';
     ReactiveFormsModule,
     MatChipsModule,
     MatIconModule,
+    MatCheckboxModule,
     PipesModule,
     FormsModule,
   ],

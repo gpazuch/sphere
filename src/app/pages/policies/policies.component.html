@@ -7,14 +7,14 @@
     </button>
   </mat-toolbar-row>
   <mat-toolbar-row>
-    <span>Filters</span>
+    <app-filter></app-filter>
   </mat-toolbar-row>
 </mat-toolbar>
-<div class="container"
-fxLayout="row"
-fxLayoutAlign="space-evenly start">
-    <app-policy-item [policy]="policy"
+<div class="container" fxLayout="row" fxLayoutAlign="space-evenly start">
+  <app-policy-item
+    [policy]="policy"
     fxFlex="1 1 auto"
-    *ngFor="let policy of policies$ | async">
-    </app-policy-item>
+    *ngFor="let policy of policies$ | async"
+  >
+  </app-policy-item>
 </div>

@@ -12,7 +12,7 @@
     </button>
   </mat-toolbar-row>
   <mat-toolbar-row>
-    <span>Filters</span>
+    <app-filter [availableFilters]="filterOptions"></app-filter>
   </mat-toolbar-row>
 </mat-toolbar>
 <div fxLayout.gt-sm="row" fxLayout.sm="column-reverse" style="height: 100%">
