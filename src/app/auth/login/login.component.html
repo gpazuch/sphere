@@ -27,6 +27,7 @@
         (click)="hide = !hide"
         [attr.aria-label]="'Hide password'"
         [attr.aria-pressed]="hide"
+        tabindex="99"
       >
         <mat-icon class="large-input">{{
           hide ? "visibility_off" : "visibility"
@@ -34,7 +35,7 @@
       </button>
       <mat-error *ngIf="loginForm.dirty || loginForm.touched"> </mat-error>
     </mat-form-field>
-    <button mat-button class="link-button" routerLink="../forgot">
+    <button mat-button tabindex="1" class="link-button" routerLink="../forgot">
       Forgot Password?
     </button>
     <button mat-flat-button color="accent" type="submit" class="login-button">
