@@ -100,7 +100,8 @@ mat-option,
     color: $orb-violet !important;
   }
 
-  &.online {
+  &.online,
+  &.active {
     color: $orb-green !important;
   }
 
@@ -108,7 +109,8 @@ mat-option,
     color: $orb-orange !important;
   }
 
-  &.stale {
+  &.stale,
+  &.error {
     color: $orb-pink !important;
   }
 

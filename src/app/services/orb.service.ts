@@ -36,6 +36,7 @@ export class OrbService implements OnDestroy {
 
   private agentsTags$: Observable<string[]>;
   private groupTags$: Observable<string[]>;
+  private sinkTags$: Observable<string[]>;
 
   constructor(
     private agent: AgentService,
@@ -106,6 +107,16 @@ export class OrbService implements OnDestroy {
       retry(),
       share()
     );
+
+    this.sinkTags$ = this.sinks$.pipe(
+      map((sinks) =>
+        sinks
+          .map((sink) =>
+            Object.entries(sink.tags).map((entry) => `${entry[0]}: ${entry[1]}`)
+          )
+          .flat()
+      )
+    );
   }
 
   ngOnDestroy() {
@@ -124,7 +135,7 @@ export class OrbService implements OnDestroy {
     return this.groups$;
   }
 
-  getGroupTags() {
+  getGroupsTags() {
     return this.groupTags$;
   }
 
@@ -138,5 +149,9 @@ export class OrbService implements OnDestroy {
 
   getSinkListView() {
     return this.sinks$;
+  }
+
+  getSinksTags() {
+    return this.sinkTags$;
   }
 }

@@ -67,7 +67,7 @@ export class GroupsComponent implements OnInit {
             .flat();
           return values.includes(tag.trim());
         },
-        autoSuggestion: orb.getGroupTags(),
+        autoSuggestion: orb.getGroupsTags(),
         type: FilterTypes.AutoComplete,
       },
       {

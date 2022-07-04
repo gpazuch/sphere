@@ -8,6 +8,11 @@ import { OrbEntity } from './orb.entity.interface';
 import { AWSConfig } from './sink/config/aws.config.interface';
 import { PrometheusConfig } from './sink/config/prometheus.config.interface';
 
+export enum SinkStates {
+  active = 'active',
+  error = 'error',
+}
+
 /**
  * @interface Sink
  */
@@ -30,7 +35,7 @@ export interface Sink extends OrbEntity {
   /**
    *  State: {string} = 'active'|'error'
    */
-  state?: string;
+  state?: SinkStates;
 
   /**
    * Error Message: {string}
