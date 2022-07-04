@@ -1,5 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 import { AgentService } from 'src/app/services/agent.service';
 import { Tags } from 'src/app/services/interfaces/tag';
 import { OrbService } from 'src/app/services/orb.service';
@@ -20,7 +25,7 @@ export class AgentAddComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private orb: OrbService,
-    private agents: AgentService,
+    private agents: AgentService
   ) {
     this.onClose = new EventEmitter();
     this.agentForm = fb.group({
@@ -32,7 +37,7 @@ export class AgentAddComponent implements OnInit {
   ngOnInit(): void {}
 
   onTagsChange(tags: Tags) {
-    this.agentForm.patchValue({orb_tags: {...tags}}, {emitEvent: true});
+    this.agentForm.patchValue({ orb_tags: { ...tags } }, { emitEvent: true });
   }
 
   onSave() {

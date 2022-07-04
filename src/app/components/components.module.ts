@@ -26,12 +26,14 @@ import { SinkItemComponent } from './sink/sink-item/sink-item.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { FilterComponent } from './filter/filter.component';
+import { AgentAddComponent } from './agent/agent-add/agent-add.component';
 
 @NgModule({
   declarations: [
     NavMenuComponent,
     NavItemComponent,
     AgentItemComponent,
+    AgentAddComponent,
     TagDisplayComponent,
     TagControlComponent,
     DatasetItemComponent,
@@ -64,6 +66,7 @@ import { FilterComponent } from './filter/filter.component';
   exports: [
     NavMenuComponent,
     AgentItemComponent,
+    AgentAddComponent,
     TagDisplayComponent,
     TagControlComponent,
     DatasetItemComponent,

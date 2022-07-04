@@ -20,7 +20,6 @@ import { GroupsComponent } from './groups/groups.component';
 import { PoliciesComponent } from './policies/policies.component';
 import { SinksComponent } from './sinks/sinks.component';
 import { DatasetsComponent } from './datasets/datasets.component';
-import { AgentAddComponent } from './agents/agent-add.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -39,7 +38,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     PoliciesComponent,
     SinksComponent,
     DatasetsComponent,
-    AgentAddComponent,
   ],
   imports: [
     CommonModule,

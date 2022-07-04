@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PagesComponent } from './pages.component';
-import {environment} from "../../environments/environment";
-import {HomeComponent} from "./home/home.component";
-import {DevComponent} from "./dev/dev.component";
+import { environment } from '../../environments/environment';
+import { HomeComponent } from './home/home.component';
+import { DevComponent } from './dev/dev.component';
 import { AgentsComponent } from './agents/agents.component';
 import { GroupsComponent } from './groups/groups.component';
 import { SinksComponent } from './sinks/sinks.component';
 import { PoliciesComponent } from './policies/policies.component';
-import { AgentAddComponent } from './agents/agent-add.component';
 
 const children = [
   {
@@ -34,13 +33,6 @@ const children = [
               breadcrumb: 'Agents List',
             },
           },
-          {
-            path: 'add',
-            component: AgentAddComponent,
-            data: {
-              breadcrumb: 'Create New Agent',
-            },
-          },
         ],
       },
       {
@@ -49,7 +41,7 @@ const children = [
         data: {
           breadcrumb: 'Agent Groups List',
         },
-      }
+      },
     ],
   },
   {
@@ -69,8 +61,8 @@ const children = [
           breadcrumb: 'Policies List',
         },
       },
-    ]
-  }
+    ],
+  },
 ];
 
 const dev_routes = [
@@ -80,7 +72,7 @@ const dev_routes = [
     data: {
       breadcrumb: 'Dev Showcase',
     },
-  }
+  },
 ];
 
 const routes: Routes = [
@@ -88,15 +80,12 @@ const routes: Routes = [
     path: '',
     component: PagesComponent,
     pathMatch: 'prefix',
-    children: [
-      ...children,
-      ...environment.production ? [] : dev_routes,
-    ],
+    children: [...children, ...(environment.production ? [] : dev_routes)],
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PagesRoutingModule { }
+export class PagesRoutingModule {}
