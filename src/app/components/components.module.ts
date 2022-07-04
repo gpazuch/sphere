@@ -29,6 +29,10 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { FilterComponent } from './filter/filter.component';
 import { AgentAddComponent } from './agent/agent-add/agent-add.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { GroupAddComponent } from './group/group-add/group-add.component';
+import { SinkAddComponent } from './sink/sink-add/sink-add.component';
+import { DatasetAddComponent } from './dataset/dataset-add/dataset-add.component';
+import { PolicyAddComponent } from './policy/policy-add/policy-add.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +48,10 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     SinkItemComponent,
     BreadcrumbsComponent,
     FilterComponent,
+    GroupAddComponent,
+    SinkAddComponent,
+    DatasetAddComponent,
+    PolicyAddComponent,
   ],
   imports: [
     CommonModule,
@@ -79,6 +87,10 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     SinkItemComponent,
     BreadcrumbsComponent,
     FilterComponent,
+    GroupAddComponent,
+    SinkAddComponent,
+    DatasetAddComponent,
+    PolicyAddComponent,
   ],
 })
 export class ComponentsModule {}
