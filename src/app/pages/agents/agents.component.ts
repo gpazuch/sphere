@@ -1,17 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import {
-  combineLatest,
-  flatMap,
-  last,
-  lastValueFrom,
-  map,
-  mergeMap,
-  Observable,
-  startWith,
-  takeLast,
-  tap,
-  withLatestFrom,
-} from 'rxjs';
+import { combineLatest, map, Observable, startWith } from 'rxjs';
 import {
   FilterOption,
   FilterTypes,
@@ -75,7 +63,9 @@ export class AgentsComponent implements OnInit, AfterViewInit {
         name: 'Agent Tags',
         prop: 'agent_tags',
         filter: (agent: Agent, tag: string) => {
-          const values = JSON.stringify(agent.agent_tags).replace("'", '');
+          const values = Object.entries(agent.agent_tags)
+            .map((entry) => `${entry[0]}: ${entry[1]}`)
+            .flat();
           return values.includes(tag.trim());
         },
         autoSuggestion: orb.getAgentsTags(),
@@ -85,7 +75,9 @@ export class AgentsComponent implements OnInit, AfterViewInit {
         name: 'Orb Tags',
         prop: 'orb_tags',
         filter: (agent: Agent, tag: string) => {
-          const values = JSON.stringify(agent.orb_tags).replace("'", '');
+          const values = Object.entries(agent.orb_tags)
+            .map((entry) => `${entry[0]}: ${entry[1]}`)
+            .flat();
           return values.includes(tag.trim());
         },
         autoSuggestion: orb.getAgentsTags(),
