@@ -78,17 +78,7 @@ export class AgentsComponent implements OnInit, AfterViewInit {
           const values = JSON.stringify(agent.agent_tags).replace("'", '');
           return values.includes(tag.trim());
         },
-        autoSuggestion: this.agents$.pipe(
-          map((agents) =>
-            agents
-              .map((agent) =>
-                Object.entries(agent.agent_tags)
-                  .map((entry) => `${entry[0]}: ${entry[1]}`)
-                  .flat()
-              )
-              .flat()
-          )
-        ),
+        autoSuggestion: orb.getAgentsTags(),
         type: FilterTypes.AutoComplete,
       },
       {
@@ -98,17 +88,7 @@ export class AgentsComponent implements OnInit, AfterViewInit {
           const values = JSON.stringify(agent.orb_tags).replace("'", '');
           return values.includes(tag.trim());
         },
-        autoSuggestion: this.agents$.pipe(
-          map((agents) =>
-            agents
-              .map((agent) =>
-                Object.entries(agent.orb_tags)
-                  .map((entry) => `${entry[0]}: ${entry[1]}`)
-                  .flat()
-              )
-              .flat()
-          )
-        ),
+        autoSuggestion: orb.getAgentsTags(),
         type: FilterTypes.AutoComplete,
       },
       {
