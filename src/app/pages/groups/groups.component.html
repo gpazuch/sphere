@@ -18,7 +18,7 @@
 <div class="container" fxLayout="row" fxLayoutAlign="space-evenly start">
   <app-group-item
     fxFlex="1 1 auto"
-    *ngFor="let groups of groups$ | async"
+    *ngFor="let groups of filteredGroups$ | async"
     [group]="groups"
   >
   </app-group-item>
