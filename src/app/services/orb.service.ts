@@ -35,6 +35,7 @@ export class OrbService implements OnDestroy {
   private sinks$: Observable<Sink[]>;
 
   private agentsTags$: Observable<string[]>;
+  private groupTags$: Observable<string[]>;
 
   constructor(
     private agent: AgentService,
@@ -76,6 +77,18 @@ export class OrbService implements OnDestroy {
       share()
     );
 
+    this.groupTags$ = this.groups$.pipe(
+      map((groups) =>
+        groups
+          .map((group) =>
+            Object.entries(group.tags).map(
+              (entry) => `${entry[0]}: ${entry[1]}`
+            )
+          )
+          .flat()
+      )
+    );
+
     this.policies$ = this.pollTimer.pipe(
       switchMap(() => this.policy.getAllPolicies()),
       retry(),
@@ -109,6 +122,10 @@ export class OrbService implements OnDestroy {
 
   getGroupListView() {
     return this.groups$;
+  }
+
+  getGroupTags() {
+    return this.groupTags$;
   }
 
   getPolicyListView() {

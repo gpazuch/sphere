@@ -9,6 +9,15 @@ import { OrbEntity } from './orb.entity.interface';
 import { TagMatch } from './tag.match.interface';
 
 /**
+ * @enum AgentStates
+ */
+export enum GroupStates {
+  online = 'online',
+  offline = 'offline',
+  stale = 'stale',
+}
+
+/**
  * @interface AgentGroup
  */
 export interface AgentGroup extends OrbEntity {
@@ -45,4 +54,6 @@ export interface AgentGroup extends OrbEntity {
    * @ignore
    */
   agents?: Agent[];
+
+  state?: GroupStates;
 }

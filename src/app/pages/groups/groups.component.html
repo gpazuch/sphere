@@ -2,12 +2,17 @@
   <mat-toolbar-row>
     <span class="page-title">Agent Group List</span>
     <span class="spacer"></span>
-    <button mat-button class="mat-flat-button" color="accent" routerLink="add">
+    <button
+      mat-button
+      class="mat-flat-button"
+      color="accent"
+      (click)="addItem = true"
+    >
       Create Group
     </button>
   </mat-toolbar-row>
   <mat-toolbar-row>
-    <app-filter></app-filter>
+    <app-filter [availableFilters]="filterOptions"></app-filter>
   </mat-toolbar-row>
 </mat-toolbar>
 <div class="container" fxLayout="row" fxLayoutAlign="space-evenly start">
@@ -17,4 +22,9 @@
     [group]="groups"
   >
   </app-group-item>
+  <app-group-add
+    *ngIf="addItem"
+    (onClose)="addItem = false"
+    fxFlex="1 0 auto"
+  ></app-group-add>
 </div>
