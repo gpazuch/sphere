@@ -33,6 +33,7 @@ import { GroupAddComponent } from './group/group-add/group-add.component';
 import { SinkAddComponent } from './sink/sink-add/sink-add.component';
 import { DatasetAddComponent } from './dataset/dataset-add/dataset-add.component';
 import { PolicyAddComponent } from './policy/policy-add/policy-add.component';
+import { DeleteConfirmationComponent } from './delete-confirmation/delete-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { PolicyAddComponent } from './policy/policy-add/policy-add.component';
     SinkAddComponent,
     DatasetAddComponent,
     PolicyAddComponent,
+    DeleteConfirmationComponent,
   ],
   imports: [
     CommonModule,
@@ -91,6 +93,7 @@ import { PolicyAddComponent } from './policy/policy-add/policy-add.component';
     SinkAddComponent,
     DatasetAddComponent,
     PolicyAddComponent,
+    DeleteConfirmationComponent,
   ],
 })
 export class ComponentsModule {}
