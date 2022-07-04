@@ -38,8 +38,11 @@ export class AgentsComponent implements OnInit {
     },
     {
       name: 'Tags',
-      prop: 'tags',
-      filter: (param: string) => {
+      prop: 'combined_tags',
+      filter: (agent: Agent, tag: string) => {
+        const values = Object.entries(agent.combined_tags).flatMap(
+          (entry) => `entry[0]:entry[1]`
+        );
         return;
       },
       type: FilterTypes.Input,
@@ -47,8 +50,10 @@ export class AgentsComponent implements OnInit {
     {
       name: 'Status',
       prop: 'state',
-      filter: (param: string[]) => {
-        return;
+      filter: (agent: Agent, states: string[]) => {
+        return states.reduce((prev, cur) => {
+          return agent.state === cur || prev;
+        }, false);
       },
       type: FilterTypes.MultiSelect,
       options: Object.values(AgentStates).map((value) => value as string),

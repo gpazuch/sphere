@@ -66,6 +66,7 @@
     <mat-label>{{ selectedFilter?.name }}</mat-label>
     <mat-select [(value)]="filterParam" required multiple>
       <mat-option
+        [ngClass]="option"
         *ngFor="let option of selectedFilter?.options"
         [value]="option"
       >
