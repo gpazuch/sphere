@@ -13,6 +13,7 @@ import { FilterService } from 'src/app/services/filter.service';
 
 export enum FilterTypes {
   Input, // string input
+  AutoComplete,
   Select, // allows select one option
   MultiSelect, // allows select multi options
   Checkbox, // on|off option
@@ -25,6 +26,7 @@ export interface FilterOption {
   type: FilterTypes;
   param?: any;
   options?: string[];
+  autoSuggestion?: Observable<string[]>;
 }
 
 @Component({

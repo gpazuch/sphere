@@ -28,6 +28,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { FilterComponent } from './filter/filter.component';
 import { AgentAddComponent } from './agent/agent-add/agent-add.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { AgentAddComponent } from './agent/agent-add/agent-add.component';
     MatCheckboxModule,
     PipesModule,
     FormsModule,
+    MatAutocompleteModule,
   ],
   exports: [
     NavMenuComponent,

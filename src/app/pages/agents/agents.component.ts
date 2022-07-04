@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import {
   combineLatest,
+  flatMap,
   last,
   lastValueFrom,
   map,
@@ -29,38 +30,7 @@ import { OrbService } from 'src/app/services/orb.service';
   providers: [FilterService],
 })
 export class AgentsComponent implements OnInit, AfterViewInit {
-  filterOptions: FilterOption[] = [
-    {
-      name: 'Name',
-      prop: 'name',
-      filter: (agent: Agent, name: string) => {
-        return agent.name?.includes(name);
-      },
-      type: FilterTypes.Input,
-    },
-    {
-      name: 'Tags',
-      prop: 'combined_tags',
-      filter: (agent: Agent, tag: string) => {
-        const values = Object.entries(agent.combined_tags).flatMap(
-          (entry) => `entry[0]:entry[1]`
-        );
-        return values.entries();
-      },
-      type: FilterTypes.Input,
-    },
-    {
-      name: 'Status',
-      prop: 'state',
-      filter: (agent: Agent, states: string[]) => {
-        return states.reduce((prev, cur) => {
-          return agent.state === cur || prev;
-        }, false);
-      },
-      type: FilterTypes.MultiSelect,
-      options: Object.values(AgentStates).map((value) => value as string),
-    },
-  ];
+  filterOptions: FilterOption[];
 
   filters$!: Observable<FilterOption[]>;
 
@@ -82,7 +52,6 @@ export class AgentsComponent implements OnInit, AfterViewInit {
         let filtered = agents;
         filters.forEach((filter) => {
           filtered = filtered.filter((value) => {
-            const propName = filter.prop;
             const paramValue = filter.param;
             const result = filter.filter(value, paramValue);
             return result;
@@ -92,6 +61,68 @@ export class AgentsComponent implements OnInit, AfterViewInit {
         return filtered;
       })
     );
+
+    this.filterOptions = [
+      {
+        name: 'Name',
+        prop: 'name',
+        filter: (agent: Agent, name: string) => {
+          return agent.name?.includes(name);
+        },
+        type: FilterTypes.Input,
+      },
+      {
+        name: 'Agent Tags',
+        prop: 'agent_tags',
+        filter: (agent: Agent, tag: string) => {
+          const values = JSON.stringify(agent.agent_tags).replace("'", '');
+          return values.includes(tag.trim());
+        },
+        autoSuggestion: this.agents$.pipe(
+          map((agents) =>
+            agents
+              .map((agent) =>
+                Object.entries(agent.agent_tags)
+                  .map((entry) => `${entry[0]}: ${entry[1]}`)
+                  .flat()
+              )
+              .flat()
+          )
+        ),
+        type: FilterTypes.AutoComplete,
+      },
+      {
+        name: 'Orb Tags',
+        prop: 'orb_tags',
+        filter: (agent: Agent, tag: string) => {
+          const values = JSON.stringify(agent.orb_tags).replace("'", '');
+          return values.includes(tag.trim());
+        },
+        autoSuggestion: this.agents$.pipe(
+          map((agents) =>
+            agents
+              .map((agent) =>
+                Object.entries(agent.orb_tags)
+                  .map((entry) => `${entry[0]}: ${entry[1]}`)
+                  .flat()
+              )
+              .flat()
+          )
+        ),
+        type: FilterTypes.AutoComplete,
+      },
+      {
+        name: 'Status',
+        prop: 'state',
+        filter: (agent: Agent, states: string[]) => {
+          return states.reduce((prev, cur) => {
+            return agent.state === cur || prev;
+          }, false);
+        },
+        type: FilterTypes.MultiSelect,
+        options: Object.values(AgentStates).map((value) => value as string),
+      },
+    ];
   }
 
   ngOnInit(): void {}

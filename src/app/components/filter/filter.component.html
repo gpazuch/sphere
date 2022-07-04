@@ -11,6 +11,9 @@
     <ng-container *ngSwitchCase="type.Input"
       ><div [ngTemplateOutlet]="input"></div
     ></ng-container>
+    <ng-container *ngSwitchCase="type.AutoComplete"
+      ><div [ngTemplateOutlet]="auto"></div
+    ></ng-container>
     <ng-container *ngSwitchCase="type.Select"
       ><div [ngTemplateOutlet]="select"></div
     ></ng-container>
@@ -61,6 +64,41 @@
     </mat-select>
   </mat-form-field>
 </ng-template>
+
+<ng-template #auto>
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option
+      *ngFor="let option of selectedFilter?.autoSuggestion | async"
+      [value]="option"
+    >
+      {{ option }}
+    </mat-option>
+  </mat-autocomplete>
+  <mat-form-field>
+    <mat-label>{{ selectedFilter?.name }}</mat-label>
+    <input
+      matInput
+      type="text"
+      [matAutocomplete]="auto"
+      [(ngModel)]="filterParam"
+      required
+    />
+  </mat-form-field>
+</ng-template>
+<ng-template #select>
+  <mat-form-field>
+    <mat-label>{{ selectedFilter?.name }}</mat-label>
+    <mat-select [(value)]="filterParam" required>
+      <mat-option
+        *ngFor="let option of selectedFilter?.options"
+        [value]="option"
+      >
+        {{ option }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</ng-template>
+
 <ng-template #multi>
   <mat-form-field>
     <mat-label>{{ selectedFilter?.name }}</mat-label>
@@ -75,6 +113,7 @@
     </mat-select>
   </mat-form-field>
 </ng-template>
+
 <ng-template #checkbox>
   <mat-checkbox [(ngModel)]="filterParam">{{
     selectedFilter?.name
