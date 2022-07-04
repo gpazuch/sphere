@@ -5,7 +5,7 @@
       <input matInput formControlName="name" />
     </mat-form-field>
   </form>
-  <app-tag-control [tags]="tags" (tagsChange)="(onTagsChange)">
+  <app-tag-control [tags]="tags" (tagsChange)="onTagsChange($event)">
   </app-tag-control>
   <button
     mat-button

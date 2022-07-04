@@ -37,7 +37,10 @@ export class AgentAddComponent implements OnInit {
   ngOnInit(): void {}
 
   onTagsChange(tags: Tags) {
-    this.agentForm.patchValue({ orb_tags: { ...tags } }, { emitEvent: true });
+    const orb_tags =
+      Object.entries(tags).length > 0 ? JSON.stringify(tags) : null;
+    this.agentForm.patchValue({ orb_tags }, { emitEvent: true });
+    this.agentForm.updateValueAndValidity();
   }
 
   onSave() {

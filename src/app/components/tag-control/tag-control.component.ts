@@ -71,7 +71,7 @@ export class TagControlComponent implements OnInit, AfterViewInit {
   }
 
   onRemoveTag(tag: any) {
-    delete this.tags[tag];
+    delete this.tags[tag.key];
     this.tagsChange.emit(this.tags);
   }
 }
