@@ -1,23 +1,31 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { defer, Observable, repeat, share, shareReplay, Subject } from 'rxjs';
 import { FilterOption } from '../components/filter/filter.component';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'any',
 })
 export class FilterService {
   private _filters: FilterOption[];
 
   private filters: Subject<FilterOption[]>;
 
+  private filters$: Observable<FilterOption[]>;
+
   constructor() {
     this.filters = new Subject();
+    this.filters$ = this.filters.asObservable();
     this._filters = [];
-    this.filters.next(this._filters);
+    this.cleanFilters();
   }
 
   getFilters() {
-    return this.filters.asObservable();
+    return this.filters$;
+  }
+
+  resetFilters(filters: FilterOption[]) {
+    this._filters = filters;
+    this.filters.next(this._filters);
   }
 
   cleanFilters() {

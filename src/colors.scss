@@ -75,10 +75,12 @@ $orb-grey-palette: (
     A200: #000000,
     A400: #000000,
     A700: #000000,
-  )
+  ),
 );
 
-.page-title, .label, .large-input  {
+.page-title,
+.label,
+.large-input {
   color: $orb-theme-text-white;
 }
 
@@ -90,24 +92,27 @@ $orb-grey-palette: (
   color: $orb-theme-text-gray !important;
 }
 
-mat-card, mat-card-title > span {
+mat-card,
+mat-card-title > span,
+mat-option,
+.orb-errors {
   &.new {
-    color: $orb-violet;
+    color: $orb-violet !important;
   }
 
   &.online {
-    color: $orb-green;
+    color: $orb-green !important;
   }
 
   &.offline {
-    color: $orb-orange;
+    color: $orb-orange !important;
   }
 
   &.stale {
-    color: $orb-pink;
+    color: $orb-pink !important;
   }
 
   &.removed {
-    color: $orb-gray-1;
+    color: $orb-gray-1 !important;
   }
 }

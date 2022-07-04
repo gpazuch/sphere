@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import {
   combineLatest,
   last,
@@ -6,6 +6,8 @@ import {
   map,
   mergeMap,
   Observable,
+  startWith,
+  takeLast,
   tap,
   withLatestFrom,
 } from 'rxjs';
@@ -26,7 +28,7 @@ import { OrbService } from 'src/app/services/orb.service';
   styleUrls: ['./agents.component.scss'],
   providers: [FilterService],
 })
-export class AgentsComponent implements OnInit {
+export class AgentsComponent implements OnInit, AfterViewInit {
   filterOptions: FilterOption[] = [
     {
       name: 'Name',
@@ -43,7 +45,7 @@ export class AgentsComponent implements OnInit {
         const values = Object.entries(agent.combined_tags).flatMap(
           (entry) => `entry[0]:entry[1]`
         );
-        return;
+        return values.entries();
       },
       type: FilterTypes.Input,
     },
@@ -70,7 +72,7 @@ export class AgentsComponent implements OnInit {
 
   constructor(private orb: OrbService, private filters: FilterService) {
     this.agents$ = orb.getAgentListView();
-    this.filters$ = filters.getFilters();
+    this.filters$ = filters.getFilters().pipe(startWith([]));
 
     this.filteredAgents$ = combineLatest({
       agents: this.agents$,
@@ -90,8 +92,11 @@ export class AgentsComponent implements OnInit {
         return filtered;
       })
     );
-    this.filters.cleanFilters();
   }
 
   ngOnInit(): void {}
+
+  ngAfterViewInit(): void {
+    // this.filters.cleanFilters();
+  }
 }

@@ -1,6 +1,11 @@
 :host {
   display: contents;
   flex-wrap: wrap;
+  padding: 3px;
+}
+
+mat-form-field {
+  padding-right: 8px;
 }
 
 .applied-filters {

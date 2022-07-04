@@ -25,7 +25,7 @@ import { Sink } from './interfaces/sink.interface';
 })
 export class OrbService implements OnDestroy {
   // ms
-  pollInterval = 120000;
+  pollInterval = 5000;
   private stopPolling: Subject<void>;
   private pollTimer: Observable<number>;
   private agents$: Observable<Agent[]>;
