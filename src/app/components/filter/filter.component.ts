@@ -1,4 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import { MatOptionSelectionChange } from '@angular/material/core';
+import { MatSelectChange } from '@angular/material/select';
+import { Observable, Subject } from 'rxjs';
+import { FilterService } from 'src/app/services/filter.service';
 
 export enum FilterTypes {
   Input, // string input
@@ -10,7 +21,7 @@ export enum FilterTypes {
 export interface FilterOption {
   name: string;
   prop: string;
-  filter?: (param: any) => any;
+  filter: (item: any, value: any) => any;
   type: FilterTypes;
   param?: any;
   options?: string[];
@@ -25,18 +36,35 @@ export class FilterComponent implements OnInit {
   @Input()
   availableFilters!: FilterOption[];
 
+  protected activeFilters$: Observable<FilterOption[]>;
+
   protected type = FilterTypes;
 
-  protected appliedFilters: FilterOption[];
+  protected selectedFilter!: FilterOption | null;
 
-  protected selectedFilter!: FilterOption;
+  protected filterParam: any;
 
-  constructor() {
+  constructor(private filter: FilterService) {
     this.availableFilters = [];
-    this.appliedFilters = [];
+    this.activeFilters$ = filter.getFilters();
   }
 
   ngOnInit(): void {}
 
-  addFilter(): void {}
+  addFilter(): void {
+    if (!this.selectedFilter) return;
+
+    this.filter.addFilter({ ...this.selectedFilter, param: this.filterParam });
+
+    this.selectedFilter = null;
+    this.filterParam = null;
+  }
+
+  removeFilter(index: number) {
+    this.filter.removeFilter(index);
+  }
+
+  filterChanged(event: MatSelectChange) {
+    this.selectedFilter = { ...event.source.value };
+  }
 }

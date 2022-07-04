@@ -19,7 +19,7 @@
   <div class="container" fxLayoutAlign="space-evenly start">
     <app-agent-item
       fxFlex="2 1 auto"
-      *ngFor="let agent of agents$ | async"
+      *ngFor="let agent of filteredAgents$ | async"
       [agent]="agent"
     ></app-agent-item>
   </div>

@@ -1,3 +1,13 @@
 :host {
   display: contents;
+  flex-wrap: wrap;
+}
+
+.applied-filters {
+  align-content: flex-end;
+}
+
+mat-chip > button.ghost-button {
+  min-width: 0;
+  padding: 0;
 }
