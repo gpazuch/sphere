@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { defer, Observable, repeat, share, shareReplay, Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { FilterOption } from '../components/filter/filter.component';
 
 @Injectable({
