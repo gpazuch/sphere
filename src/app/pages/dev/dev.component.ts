@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import {
   DeleteConfirmationDialog,
   DeleteDialogData,
@@ -44,6 +44,12 @@ export class DevComponent {
       entity: 'Orb Entity',
       confirmationString: 'my_entity_name_01',
     };
-    this.dialog.open(DeleteConfirmationDialog, { data });
+    const options: MatDialogConfig = {
+      autoFocus: true,
+      disableClose: true,
+      hasBackdrop: true,
+    };
+
+    this.dialog.open(DeleteConfirmationDialog, { data, ...options });
   }
 }
