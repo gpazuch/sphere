@@ -1,0 +1,34 @@
+<h2 mat-dialog-title class="page-title">
+  Delete {{ data.entity }} Confirmation
+</h2>
+<mat-dialog-content>
+  <p class="body-regular">
+    Are you sure you want to delete this {{ data.entity }}?
+  </p>
+  <p class="body-regular">{{ data?.extra }}</p>
+  <p class="body-regular">
+    This action cannot be undone.<span class="warn">*</span>
+  </p>
+
+  <p class="warn tag">
+    *To confirm, type your {{ data.entity }} name exactly as it appears.
+  </p>
+
+  <mat-form-field id="confirmation-input">
+    <mat-label>{{ data.confirmationString }}</mat-label>
+    <input matInput [(ngModel)]="confirmationInput" class="large-input" />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close color="accent">Cancel</button>
+  <button
+    mat-button
+    mat-flat-button
+    [mat-dialog-close]="true"
+    color="warn"
+    [disabled]="confirmationInput !== data.confirmationString"
+    cdkFocusInitial
+  >
+    I understand, delete this {{ data.entity }}
+  </button>
+</mat-dialog-actions>

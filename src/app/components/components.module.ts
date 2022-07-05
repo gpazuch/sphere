@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
@@ -33,7 +34,7 @@ import { GroupAddComponent } from './group/group-add/group-add.component';
 import { SinkAddComponent } from './sink/sink-add/sink-add.component';
 import { DatasetAddComponent } from './dataset/dataset-add/dataset-add.component';
 import { PolicyAddComponent } from './policy/policy-add/policy-add.component';
-import { DeleteConfirmationComponent } from './delete-confirmation/delete-confirmation.component';
+import { DeleteConfirmationDialog } from './delete-confirmation/delete-confirmation.component';
 import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
 import { MatMenuModule } from '@angular/material/menu';
 
@@ -55,7 +56,7 @@ import { MatMenuModule } from '@angular/material/menu';
     SinkAddComponent,
     DatasetAddComponent,
     PolicyAddComponent,
-    DeleteConfirmationComponent,
+    DeleteConfirmationDialog,
     ProfileMenuComponent,
   ],
   imports: [
@@ -80,6 +81,7 @@ import { MatMenuModule } from '@angular/material/menu';
     FormsModule,
     MatAutocompleteModule,
     MatMenuModule,
+    MatDialogModule,
   ],
   exports: [
     NavMenuComponent,
@@ -97,7 +99,7 @@ import { MatMenuModule } from '@angular/material/menu';
     SinkAddComponent,
     DatasetAddComponent,
     PolicyAddComponent,
-    DeleteConfirmationComponent,
+    DeleteConfirmationDialog,
     ProfileMenuComponent,
   ],
 })

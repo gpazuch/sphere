@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { MatDialog } from '@angular/material/dialog';
+import {
+  DeleteConfirmationDialog,
+  DeleteDialogData,
+} from 'src/app/components/delete-confirmation/delete-confirmation.component';
 
 @Component({
   selector: 'app-dev',
@@ -29,5 +34,16 @@ export class DevComponent {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private dialog: MatDialog
+  ) {}
+
+  openDeleteDialog() {
+    const data: DeleteDialogData = {
+      entity: 'Orb Entity',
+      confirmationString: 'my_entity_name_01',
+    };
+    this.dialog.open(DeleteConfirmationDialog, { data });
+  }
 }
