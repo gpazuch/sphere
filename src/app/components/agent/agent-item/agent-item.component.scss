@@ -1,3 +1,5 @@
+@import "src/colors.scss";
+
 .mat-card {
   border-top-width: 1px;
   border-top-style: solid;
@@ -7,11 +9,11 @@
 
   > .mat-card-title {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 
     .state {
       padding-left: 5px;
+      margin-left: auto;
       display: flex;
       align-items: center;
 
@@ -34,4 +36,30 @@
 
 app-tag-display {
   padding-bottom: 8px;
+}
+
+button.mat-menu-item,
+button.mat-menu-item {
+  &.edit {
+    color: $orb-green;
+
+    > mat-icon {
+      color: $orb-green;
+    }
+  }
+  &.delete {
+    color: $orb-pink;
+
+    > mat-icon {
+      color: $orb-pink;
+    }
+  }
+}
+
+.menu-button {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 4px;
+  height: min-content;
+  width: min-content;
 }

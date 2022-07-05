@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {
   Agent,
   AgentStates,
@@ -13,7 +13,16 @@ export class AgentItemComponent {
   @Input()
   agent: Agent = {};
 
-  constructor() {}
+  @Output()
+  edit: EventEmitter<Agent>;
+
+  @Output()
+  delete: EventEmitter<Agent>;
+
+  constructor() {
+    this.edit = new EventEmitter();
+    this.delete = new EventEmitter();
+  }
 
   stateIcon(): string {
     const { state } = this.agent;
