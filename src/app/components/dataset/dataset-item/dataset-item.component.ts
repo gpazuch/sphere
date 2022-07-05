@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Dataset } from 'src/app/services/interfaces/dataset.interface';
 
 @Component({
@@ -6,11 +6,9 @@ import { Dataset } from 'src/app/services/interfaces/dataset.interface';
   templateUrl: './dataset-item.component.html',
   styleUrls: ['./dataset-item.component.scss'],
 })
-export class DatasetItemComponent implements OnInit {
+export class DatasetItemComponent {
   @Input()
   dataset: Dataset = {};
 
   constructor() {}
-
-  ngOnInit(): void {}
 }

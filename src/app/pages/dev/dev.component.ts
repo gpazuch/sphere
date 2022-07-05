@@ -3,7 +3,7 @@ import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import {
-  DeleteConfirmationDialog,
+  DeleteConfirmationComponent,
   DeleteDialogData,
 } from 'src/app/components/delete-confirmation/delete-confirmation.component';
 
@@ -50,6 +50,6 @@ export class DevComponent {
       hasBackdrop: true,
     };
 
-    this.dialog.open(DeleteConfirmationDialog, { data, ...options });
+    this.dialog.open(DeleteConfirmationComponent, { data, ...options });
   }
 }

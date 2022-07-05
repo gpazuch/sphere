@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
   Agent,
   AgentStates,
@@ -9,13 +9,11 @@ import {
   templateUrl: './agent-item.component.html',
   styleUrls: ['./agent-item.component.scss'],
 })
-export class AgentItemComponent implements OnInit {
+export class AgentItemComponent {
   @Input()
   agent: Agent = {};
 
   constructor() {}
-
-  ngOnInit(): void {}
 
   stateIcon(): string {
     const { state } = this.agent;

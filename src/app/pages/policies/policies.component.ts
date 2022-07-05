@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { combineLatest, map, Observable, startWith } from 'rxjs';
 import {
   FilterOption,
@@ -13,7 +13,7 @@ import { OrbService } from 'src/app/services/orb.service';
   templateUrl: './policies.component.html',
   styleUrls: ['./policies.component.scss'],
 })
-export class PoliciesComponent implements OnInit {
+export class PoliciesComponent {
   filterOptions: FilterOption[];
 
   filters$!: Observable<FilterOption[]>;
@@ -57,8 +57,6 @@ export class PoliciesComponent implements OnInit {
       },
     ];
   }
-
-  ngOnInit(): void {}
 
   policyState() {
     const state = 'stale';

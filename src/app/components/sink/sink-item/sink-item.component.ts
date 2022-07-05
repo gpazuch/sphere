@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Sink } from 'src/app/services/interfaces/sink.interface';
 
 @Component({
@@ -6,13 +6,11 @@ import { Sink } from 'src/app/services/interfaces/sink.interface';
   templateUrl: './sink-item.component.html',
   styleUrls: ['./sink-item.component.scss'],
 })
-export class SinkItemComponent implements OnInit {
+export class SinkItemComponent {
   @Input()
   sink: Sink = {};
 
   constructor() {}
-
-  ngOnInit(): void {}
 
   sinkState() {
     const state = 'stale';

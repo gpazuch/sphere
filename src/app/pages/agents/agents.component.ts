@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { combineLatest, map, Observable, startWith } from 'rxjs';
 import {
   FilterOption,
@@ -17,7 +17,7 @@ import { OrbService } from 'src/app/services/orb.service';
   styleUrls: ['./agents.component.scss'],
   providers: [FilterService],
 })
-export class AgentsComponent implements OnInit {
+export class AgentsComponent {
   filterOptions: FilterOption[];
 
   filters$!: Observable<FilterOption[]>;
@@ -96,6 +96,4 @@ export class AgentsComponent implements OnInit {
       },
     ];
   }
-
-  ngOnInit(): void {}
 }

@@ -1,21 +1,18 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   UntypedFormBuilder,
-  FormControl,
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { map, Observable, shareReplay } from 'rxjs';
-import { AuthService, User } from '../auth.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
   hide = true;
 
   registerForm: UntypedFormGroup;
@@ -39,8 +36,6 @@ export class RegisterComponent implements OnInit {
       repassword: [null, [Validators.required, Validators.minLength(8)]],
     });
   }
-
-  ngOnInit(): void {}
 
   onSubmit(): void {
     const user = this.registerForm.value;

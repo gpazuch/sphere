@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
   AgentGroup,
   GroupStates,
@@ -9,11 +9,9 @@ import {
   templateUrl: './group-item.component.html',
   styleUrls: ['./group-item.component.scss'],
 })
-export class GroupItemComponent implements OnInit {
+export class GroupItemComponent {
   @Input()
   group: AgentGroup = {};
 
   constructor() {}
-
-  ngOnInit(): void {}
 }

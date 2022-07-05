@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
 import { Observable, Subject } from 'rxjs';
 import { FilterService } from 'src/app/services/filter.service';
@@ -26,7 +26,7 @@ export interface FilterOption {
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss'],
 })
-export class FilterComponent implements OnInit {
+export class FilterComponent {
   @Input()
   availableFilters!: FilterOption[];
 
@@ -42,8 +42,6 @@ export class FilterComponent implements OnInit {
     this.availableFilters = [];
     this.activeFilters$ = filter.getFilters();
   }
-
-  ngOnInit(): void {}
 
   addFilter(): void {
     if (!this.selectedFilter) return;

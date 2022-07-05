@@ -1,10 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {
-  FormBuilder,
-  UntypedFormBuilder,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AgentService } from 'src/app/services/agent.service';
 import { Tags } from 'src/app/services/interfaces/tag';
 import { OrbService } from 'src/app/services/orb.service';
@@ -14,9 +9,9 @@ import { OrbService } from 'src/app/services/orb.service';
   templateUrl: './agent-add.component.html',
   styleUrls: ['./agent-add.component.scss'],
 })
-export class AgentAddComponent implements OnInit {
+export class AgentAddComponent {
   @Output()
-  onClose: EventEmitter<void>;
+  discard: EventEmitter<void>;
 
   agentForm: UntypedFormGroup;
 
@@ -27,7 +22,7 @@ export class AgentAddComponent implements OnInit {
     private orb: OrbService,
     private agents: AgentService
   ) {
-    this.onClose = new EventEmitter();
+    this.discard = new EventEmitter();
     this.agentForm = fb.group({
       name: [
         null,
@@ -36,8 +31,6 @@ export class AgentAddComponent implements OnInit {
       orb_tags: [null, [Validators.required]],
     });
   }
-
-  ngOnInit(): void {}
 
   onTagsChange(tags: Tags) {
     const orb_tags =
@@ -53,10 +46,10 @@ export class AgentAddComponent implements OnInit {
     // TODO get response of addAgent route
     // and show dialog with provisioning command.
 
-    this.onClose.emit();
+    this.discard.emit();
   }
 
   onDiscard() {
-    this.onClose.emit();
+    this.discard.emit();
   }
 }

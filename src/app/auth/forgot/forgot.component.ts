@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -12,7 +12,7 @@ import { AuthService } from '../auth.service';
   templateUrl: './forgot.component.html',
   styleUrls: ['./forgot.component.scss'],
 })
-export class ForgotComponent implements OnInit {
+export class ForgotComponent {
   forgotForm: UntypedFormGroup;
 
   constructor(
@@ -30,8 +30,6 @@ export class ForgotComponent implements OnInit {
       ],
     });
   }
-
-  ngOnInit(): void {}
 
   onSubmit(): void {
     const email = this.forgotForm.value;

@@ -1,21 +1,20 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   UntypedFormBuilder,
-  FormControl,
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { map, Observable, shareReplay } from 'rxjs';
-import { AuthService, User } from '../auth.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   hide = true;
 
   loginForm: UntypedFormGroup;
@@ -44,8 +43,6 @@ export class LoginComponent implements OnInit {
       password: [null, [Validators.required, Validators.minLength(8)]],
     });
   }
-
-  ngOnInit(): void {}
 
   onSubmit(): void {
     const { email, password } = this.loginForm.value;

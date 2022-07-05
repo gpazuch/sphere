@@ -60,7 +60,11 @@
               "optimization": true,
               "sourceMap": false,
               "stylePreprocessorOptions": {
-                "includePaths": ["src/styles.scss", "src/colors.scss", "src/typos.scss"]
+                "includePaths": [
+                  "src/styles.scss",
+                  "src/colors.scss",
+                  "src/typos.scss"
+                ]
               },
               "buildOptimizer": true,
               "aot": true
@@ -111,8 +115,22 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

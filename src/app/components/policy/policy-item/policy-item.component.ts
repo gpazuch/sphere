@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AgentPolicy } from 'src/app/services/interfaces/policy.interface';
 
 @Component({
@@ -6,13 +6,11 @@ import { AgentPolicy } from 'src/app/services/interfaces/policy.interface';
   templateUrl: './policy-item.component.html',
   styleUrls: ['./policy-item.component.scss'],
 })
-export class PolicyItemComponent implements OnInit {
+export class PolicyItemComponent {
   @Input()
   policy: AgentPolicy = {};
 
   constructor() {}
-
-  ngOnInit(): void {}
 
   policyState() {
     const state = 'stale';

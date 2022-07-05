@@ -4,7 +4,6 @@ import {
   ElementRef,
   EventEmitter,
   Input,
-  OnInit,
   Output,
   ViewChild,
 } from '@angular/core';
@@ -20,7 +19,7 @@ import { Tags } from 'src/app/services/interfaces/tag';
   templateUrl: './tag-control.component.html',
   styleUrls: ['./tag-control.component.scss'],
 })
-export class TagControlComponent implements OnInit, AfterViewInit {
+export class TagControlComponent implements AfterViewInit {
   key: string;
 
   value: string;
@@ -48,8 +47,6 @@ export class TagControlComponent implements OnInit, AfterViewInit {
     this.key = '';
     this.value = '';
   }
-
-  ngOnInit(): void {}
 
   ngAfterViewInit() {
     if (this.focusAfterViewInit) this.focus();

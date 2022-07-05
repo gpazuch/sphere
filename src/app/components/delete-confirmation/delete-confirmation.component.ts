@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 export interface DeleteDialogData {
@@ -12,10 +12,8 @@ export interface DeleteDialogData {
   templateUrl: './delete-confirmation.component.html',
   styleUrls: ['./delete-confirmation.component.scss'],
 })
-export class DeleteConfirmationDialog implements OnInit {
+export class DeleteConfirmationComponent {
   protected confirmationInput = '';
 
   constructor(@Inject(MAT_DIALOG_DATA) protected data: DeleteDialogData) {}
-
-  ngOnInit(): void {}
 }
