@@ -45,7 +45,12 @@ export class AuthService {
   }
 
   logout() {
-    window.sessionStorage.clear();
+    this.token.clear();
+  }
+
+  getTokenUser(): string {
+    const sub = this.token.tokenSub(TokenDomains.OrbAPI);
+    return sub;
   }
 
   forgotPassword(email: { email: string }) {

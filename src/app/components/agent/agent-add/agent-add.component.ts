@@ -29,7 +29,10 @@ export class AgentAddComponent implements OnInit {
   ) {
     this.onClose = new EventEmitter();
     this.agentForm = fb.group({
-      name: [null, [Validators.required]],
+      name: [
+        null,
+        [Validators.required, Validators.pattern('^[a-zA-Z_][a-zA-Z0-9_-]*$')],
+      ],
       orb_tags: [null, [Validators.required]],
     });
   }
@@ -46,6 +49,9 @@ export class AgentAddComponent implements OnInit {
   onSave() {
     const agent = this.agentForm.value;
     this.agents.addAgent(agent).subscribe();
+
+    // TODO get response of addAgent route
+    // and show dialog with provisioning command.
   }
 
   onDiscard() {

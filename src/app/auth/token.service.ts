@@ -35,4 +35,9 @@ export class TokenService {
     const token = this.retrieveToken(domain);
     return this.jwt.getTokenExpirationDate(token);
   }
+
+  tokenSub(domain: TokenDomains) {
+    const token = this.retrieveToken(domain);
+    return this.jwt.decodeToken(token)?.sub;
+  }
 }

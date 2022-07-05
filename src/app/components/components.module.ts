@@ -34,6 +34,8 @@ import { SinkAddComponent } from './sink/sink-add/sink-add.component';
 import { DatasetAddComponent } from './dataset/dataset-add/dataset-add.component';
 import { PolicyAddComponent } from './policy/policy-add/policy-add.component';
 import { DeleteConfirmationComponent } from './delete-confirmation/delete-confirmation.component';
+import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import { DeleteConfirmationComponent } from './delete-confirmation/delete-confir
     DatasetAddComponent,
     PolicyAddComponent,
     DeleteConfirmationComponent,
+    ProfileMenuComponent,
   ],
   imports: [
     CommonModule,
@@ -76,6 +79,7 @@ import { DeleteConfirmationComponent } from './delete-confirmation/delete-confir
     PipesModule,
     FormsModule,
     MatAutocompleteModule,
+    MatMenuModule,
   ],
   exports: [
     NavMenuComponent,
@@ -94,6 +98,7 @@ import { DeleteConfirmationComponent } from './delete-confirmation/delete-confir
     DatasetAddComponent,
     PolicyAddComponent,
     DeleteConfirmationComponent,
+    ProfileMenuComponent,
   ],
 })
 export class ComponentsModule {}
