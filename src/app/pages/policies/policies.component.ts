@@ -22,7 +22,7 @@ export class PoliciesComponent implements OnInit {
 
   filteredPolicies$: Observable<AgentPolicy[]>;
 
-  addItem = true;
+  addItem = false;
 
   constructor(private orb: OrbService, private filters: FilterService) {
     this.policies$ = orb.getPolicyListView();
