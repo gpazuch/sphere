@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 
 import { DevComponent } from './dev.component';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 describe('DevComponent', () => {
   let component: DevComponent;
@@ -25,6 +25,7 @@ describe('DevComponent', () => {
         MatGridListModule,
         MatIconModule,
         MatMenuModule,
+        MatDialogModule,
       ],
       providers: [BreakpointObserver, MatDialog],
     }).compileComponents();
