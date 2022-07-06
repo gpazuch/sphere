@@ -1,4 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { GroupService } from 'src/app/services/group.service';
+import { OrbService } from 'src/app/services/orb.service';
 
 import { GroupsComponent } from './groups.component';
 
@@ -9,6 +12,8 @@ describe('GroupsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [GroupsComponent],
+      imports: [HttpClientTestingModule],
+      providers: [OrbService, GroupService],
     }).compileComponents();
   });
 

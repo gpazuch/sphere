@@ -15,11 +15,7 @@ import { AuthService } from '../auth.service';
 export class ForgotComponent {
   forgotForm: UntypedFormGroup;
 
-  constructor(
-    private fb: UntypedFormBuilder,
-    private auth: AuthService,
-    private router: Router
-  ) {
+  constructor(private fb: UntypedFormBuilder, private auth: AuthService) {
     this.forgotForm = this.fb.group({
       email: [
         null,

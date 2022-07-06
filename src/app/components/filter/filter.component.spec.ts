@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FilterService } from 'src/app/services/filter.service';
 
 import { FilterComponent } from './filter.component';
 

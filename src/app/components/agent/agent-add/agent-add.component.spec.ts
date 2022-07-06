@@ -1,4 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AgentAddComponent } from './agent-add.component';
 
@@ -9,6 +11,7 @@ describe('AgentAddComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AgentAddComponent],
+      imports: [FormsModule, ReactiveFormsModule, HttpClientTestingModule],
     }).compileComponents();
   });
 

@@ -11,11 +11,13 @@ import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { MAT_RIPPLE_GLOBAL_OPTIONS } from '@angular/material/core';
 import { PipesModule } from './pipes/pipes.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
@@ -27,6 +29,7 @@ import { PipesModule } from './pipes/pipes.module';
     TokenService,
     AuthService,
     AuthGuard,
+    HttpClient,
     { provide: MAT_RIPPLE_GLOBAL_OPTIONS, useValue: { disabled: true } },
   ],
   bootstrap: [AppComponent],

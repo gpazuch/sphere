@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { PolicyService } from './policy.service';
@@ -6,7 +7,9 @@ describe('PolicyService', () => {
   let service: PolicyService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+    });
     service = TestBed.inject(PolicyService);
   });
 

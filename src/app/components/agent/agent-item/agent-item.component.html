@@ -30,6 +30,10 @@
 </mat-card>
 
 <mat-menu #menu="matMenu">
+  <button class="view" (click)="view.emit(agent)" mat-menu-item>
+    <mat-icon>view</mat-icon>
+    <span>view</span>
+  </button>
   <button class="edit" (click)="edit.emit(agent)" mat-menu-item>
     <mat-icon>edit</mat-icon>
     <span>edit</span>

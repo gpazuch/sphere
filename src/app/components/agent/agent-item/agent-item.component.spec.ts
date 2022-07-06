@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { AgentItemComponent } from './agent-item.component';
 
@@ -8,9 +9,9 @@ describe('AgentItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AgentItemComponent ]
-    })
-    .compileComponents();
+      declarations: [AgentItemComponent],
+      imports: [MatMenuModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

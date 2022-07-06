@@ -17,11 +17,15 @@ export class AgentItemComponent {
   edit: EventEmitter<Agent>;
 
   @Output()
+  view: EventEmitter<Agent>;
+
+  @Output()
   delete: EventEmitter<Agent>;
 
   constructor() {
     this.edit = new EventEmitter();
     this.delete = new EventEmitter();
+    this.view = new EventEmitter();
   }
 
   stateIcon(): string {
