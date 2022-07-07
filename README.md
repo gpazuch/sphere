@@ -1,6 +1,8 @@
 # Orb
 
-This is a rewrite of Orb's UI.
+This is an exercise rewrite of Orb's UI.
+
+Check out [Orb Official github page](https://github.com/ns1labs/orb).
 
 ## Development server
 
