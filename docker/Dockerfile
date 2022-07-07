@@ -1,5 +1,5 @@
 # Stage 0, based on orb-ui-module, to build and compile Angular
-FROM node:16.16.0 as node
+FROM node:lts as node
 
 WORKDIR /app
 COPY package.json /app/
