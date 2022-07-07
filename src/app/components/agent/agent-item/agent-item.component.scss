@@ -40,6 +40,12 @@ app-tag-display {
 
 button.mat-menu-item,
 button.mat-menu-item {
+  &.view {
+    color: $orb-blue;
+    > mat-icon {
+      color: $orb-blue;
+    }
+  }
   &.edit {
     color: $orb-green;
 

@@ -1,9 +1,15 @@
 import { Component } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { combineLatest, map, Observable, startWith } from 'rxjs';
+import {
+  DeleteConfirmationComponent,
+  DeleteDialogData,
+} from 'src/app/components/delete-confirmation/delete-confirmation.component';
 import {
   FilterOption,
   FilterTypes,
 } from 'src/app/components/filter/filter.component';
+import { AgentService } from 'src/app/services/agent.service';
 import { FilterService } from 'src/app/services/filter.service';
 import {
   Agent,
@@ -28,7 +34,12 @@ export class AgentsComponent {
 
   addItem = false;
 
-  constructor(private orb: OrbService, private filters: FilterService) {
+  constructor(
+    private orb: OrbService,
+    private filters: FilterService,
+    private agents: AgentService,
+    private dialog: MatDialog
+  ) {
     this.agents$ = orb.getAgentListView();
     this.filters$ = filters.getFilters().pipe(startWith([]));
 
@@ -95,5 +106,31 @@ export class AgentsComponent {
         options: Object.values(AgentStates).map((value) => value as string),
       },
     ];
+  }
+
+  onDelete(agent: Agent) {
+    const { id, name } = agent;
+
+    if (!!id && !!name) {
+      const data: DeleteDialogData = {
+        entity: 'Agent',
+        confirmationString: name,
+      };
+      const options: MatDialogConfig = {
+        autoFocus: true,
+        disableClose: true,
+        hasBackdrop: true,
+      };
+
+      this.dialog
+        .open(DeleteConfirmationComponent, { data, ...options })
+        .afterClosed()
+        .subscribe((deleted?: boolean) => {
+          !!deleted &&
+            this.agents
+              .deleteAgent(id)
+              .subscribe((_) => this.orb.forceRequest());
+        });
+    }
   }
 }
