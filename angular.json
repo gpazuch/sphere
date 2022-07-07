@@ -131,6 +131,9 @@
   "cli": {
     "schematicCollections": [
       "@angular-eslint/schematics"
-    ]
+    ],
+    "cache": {
+      "enabled": true
+    }
   }
 }
