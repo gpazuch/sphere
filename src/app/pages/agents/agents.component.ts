@@ -126,10 +126,7 @@ export class AgentsComponent {
         .open(DeleteConfirmationComponent, { data, ...options })
         .afterClosed()
         .subscribe((deleted?: boolean) => {
-          !!deleted &&
-            this.agents
-              .deleteAgent(id)
-              .subscribe((_) => this.orb.forceRequest());
+          !!deleted && this.agents.deleteAgent(id).subscribe();
         });
     }
   }
