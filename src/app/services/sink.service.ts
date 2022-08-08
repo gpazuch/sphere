@@ -57,12 +57,12 @@ export class SinkService {
 
     return this.http.get(`${environment.sinks}`, {params})
     .pipe(map((resp: any) => {
-      const {order, dir, offset, limit, total, sinks} = resp;
+      const {order, direction, offset, limit, total, sinks} = resp;
       const next = offset + limit < total && {
-        limit, order, dir,
+        limit, order, dir: direction,
         offset: (parseInt(offset, 10) + parseInt(limit, 10)).toString(),
       }
-      return {order, dir, offset, limit, total, data: sinks, next} as OrbPagination<Sink>;
+      return {order, dir: direction, offset, limit, total, data: sinks, next} as OrbPagination<Sink>;
     }));
   }
 

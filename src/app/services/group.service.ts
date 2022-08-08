@@ -58,11 +58,11 @@ export class GroupService {
 
     return this.http.get(`${environment.groups}`, { params }).pipe(
       map((resp: any) => {
-        const { order, dir, offset, limit, total, agentGroups } = resp;
+        const { order, direction, offset, limit, total, agentGroups } = resp;
         const next = offset + limit < total && {
           limit,
           order,
-          dir,
+          dir: direction,
           offset: (parseInt(offset, 10) + parseInt(limit, 10)).toString(),
         };
         const mappedGroups = agentGroups.map((group: AgentGroup) => ({
@@ -71,7 +71,7 @@ export class GroupService {
         }));
         return {
           order,
-          dir,
+          dir: direction,
           offset,
           limit,
           total,

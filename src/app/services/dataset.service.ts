@@ -48,26 +48,26 @@ export class DatasetService {
   }
 
   getDatasetPage(page: OrbPagination<Dataset>) {
-    const { order, dir, offset, limit } = page;
+    const { order, dir: direction, offset, limit } = page;
 
     let params = new HttpParams()
       .set('order', order)
-      .set('dir', dir)
+      .set('dir', direction)
       .set('offset', offset.toString())
       .set('limit', limit.toString());
 
     return this.http.get(`${environment.datasets}`, { params }).pipe(
       map((resp: any) => {
-        const { order, dir, offset, limit, total, datasets } = resp;
+        const { order, direction, offset, limit, total, datasets } = resp;
         const next = offset + limit < total && {
           limit,
           order,
-          dir,
+          dir: direction,
           offset: (parseInt(offset, 10) + parseInt(limit, 10)).toString(),
         };
         return {
           order,
-          dir,
+          dir: direction,
           offset,
           limit,
           total,

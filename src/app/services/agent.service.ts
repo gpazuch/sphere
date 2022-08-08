@@ -59,16 +59,16 @@ export class AgentService {
 
     return this.http.get(`${environment.agents}`, { params }).pipe(
       map((resp: any) => {
-        const { order, dir, offset, limit, total, agents } = resp;
+        const { order, direction, offset, limit, total, agents } = resp;
         const next = offset + limit < total && {
           limit,
           order,
-          dir,
+          dir: direction,
           offset: (parseInt(offset, 10) + parseInt(limit, 10)).toString(),
         };
         return {
           order,
-          dir,
+          dir: direction,
           offset,
           limit,
           total,
