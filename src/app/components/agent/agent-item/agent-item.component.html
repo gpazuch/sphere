@@ -1,6 +1,6 @@
-<mat-card [ngClass]="agent?.state || ''">
+<mat-card [ngClass]="agent.state || ''">
   <mat-card-title class="label">
-    <span>{{ agent?.name }}</span>
+    <span>{{ agent.name }}</span>
     <button
       class="menu-button"
       mat-icon-button
@@ -9,14 +9,14 @@
     >
       <mat-icon>more_vert</mat-icon>
     </button>
-    <span class="body-regular state" [ngClass]="agent?.state || ''">
+    <span class="body-regular state" [ngClass]="agent.state || ''">
       <mat-icon>{{ stateIcon() }}</mat-icon>
-      {{ agent?.state }}
+      {{ agent.state }}
     </span>
   </mat-card-title>
   <mat-card-subtitle>
     <span class="body-regular last_hb">{{
-      agent?.ts_last_hb | date: "M/d/yy, HH:mm z"
+      agent.ts_last_hb | date: "M/d/yy, HH:mm z"
     }}</span>
   </mat-card-subtitle>
   <mat-card-content>

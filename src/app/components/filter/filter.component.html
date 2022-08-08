@@ -7,7 +7,7 @@
   </mat-select>
 </mat-form-field>
 <ng-container *ngIf="selectedFilter">
-  <div [ngSwitch]="selectedFilter?.type">
+  <div [ngSwitch]="selectedFilter.type">
     <ng-container *ngSwitchCase="type.Input"
       ><div [ngTemplateOutlet]="input"></div
     ></ng-container>
